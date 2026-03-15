@@ -365,6 +365,53 @@ p {
   margin: 0;
 }
 
+/* ── TRUSTED BY STRIP ─────────────────────────────────── */
+#trusted {
+  background: #FAFAF8;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+}
+.trusted-label {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 36px;
+}
+.trusted-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 48px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.trusted-logos img {
+  height: 26px;
+  width: auto;
+  opacity: 0.4;
+  filter: grayscale(100%);
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+.trusted-logos img:hover {
+  opacity: 0.85;
+  filter: grayscale(0%);
+}
+.trusted-more {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: #9A9080;
+  margin-top: 28px;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
 /* ── PAGE HERO (inner pages) ───────────────────────────── */
 .page-hero {
   background: var(--bg);
