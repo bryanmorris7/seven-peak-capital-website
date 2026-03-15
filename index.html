@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Seven Peak Capital — Institutional-quality multifamily real estate and private credit for accredited investors." />
+  <title>Seven Peak Capital | Private Equity &amp; Private Credit</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0A0F1E;
+      --navy-card:  #0F1628;
+      --navy-light: #141d35;
+      --gold:       #C9A84C;
+      --gold-light: #e4c878;
+      --gold-dim:   #8a6e2f;
+      --text:       #F5F0E8;
+      --text-muted: #9A9080;
+      --border:     rgba(201, 168, 76, 0.25);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'DM Sans', system-ui, sans-serif;
+      --max-w:      1200px;
+      --section-py: 100px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background-color: var(--navy);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ─── GOLD RULE ─────────────────────────────────────────── */
+    .gold-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 20px;
+    }
+    .gold-rule--center { margin-left: auto; margin-right: auto; }
+
+    /* ─── SECTION LABEL ─────────────────────────────────────── */
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    /* ─── SECTION HEADLINE ──────────────────────────────────── */
+    .section-headline {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    /* ─── BUTTONS ───────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 34px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .btn--gold {
+      background: var(--gold);
+      color: var(--navy);
+      border: 1px solid var(--gold);
+    }
+    .btn--gold:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.25);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .btn--outline:hover {
+      background: rgba(201,168,76,0.08);
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .btn--outline-white {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(245,240,232,0.4);
+    }
+    .btn--outline-white:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ─── FADE-IN ANIMATION ─────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ══════════════════════════════════════════════════════════
+       NAV
+    ══════════════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 24px 0;
+      transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(10, 15, 30, 0.97);
+      padding: 16px 0;
+      box-shadow: 0 2px 40px rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: 1.3rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav-logo span { font-weight: 300; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.25s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 100%;
+      height: 1px;
+      background: var(--gold);
+      transition: right 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { right: 0; }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--gold);
+      transition: all 0.3s;
+    }
+    /* Mobile menu */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--navy);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      transition: color 0.25s;
+    }
+    .nav-mobile a:hover { color: var(--gold); }
+    .nav-mobile-close {
+      position: absolute;
+      top: 28px; right: 32px;
+      font-size: 28px;
+      color: var(--gold);
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(ellipse at 60% 40%, rgba(201,168,76,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(20,30,70,0.8) 0%, transparent 50%),
+        linear-gradient(160deg, #060a14 0%, #0a0f1e 40%, #080d1a 100%);
+      will-change: transform;
+    }
+    /* Subtle grid texture */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 75%);
+    }
+    /* Peak silhouette SVG as a subtle overlay */
+    .hero-mountain {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 45%;
+      opacity: 0.06;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400' preserveAspectRatio='none'%3E%3Cpolygon points='0,400 200,180 320,260 480,80 640,200 720,40 800,160 960,100 1100,220 1260,60 1440,180 1440,400' fill='%23C9A84C'/%3E%3C/svg%3E") no-repeat bottom center / cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 140px 0 100px;
+      max-width: 780px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       CREDIBILITY BAR
+    ══════════════════════════════════════════════════════════ */
+    #credibility {
+      background: var(--navy-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .cred-inner {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 0;
+    }
+    .cred-item {
+      text-align: center;
+      padding: 12px 40px;
+      flex: 1;
+      max-width: 280px;
+    }
+    .cred-item + .cred-item {
+      border-left: 1px solid var(--border);
+    }
+    .cred-number {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .cred-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       PHILOSOPHY / ABOUT
+    ══════════════════════════════════════════════════════════ */
+    #about {
+      padding: var(--section-py) 0;
+      background: var(--navy);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-left p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+    .principles {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .principle-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 28px 28px 24px;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+    .principle-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 0 0 0 transparent;
+      transform: translateX(4px);
+    }
+    .principle-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .principle-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       STRATEGY
+    ══════════════════════════════════════════════════════════ */
+    #strategy {
+      padding: var(--section-py) 0;
+      background: var(--navy-card);
+      border-top: 1px solid var(--border);
+    }
+    .strategy-header { text-align: center; margin-bottom: 64px; }
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .strategy-card {
+      background: var(--navy);
+      border: 1px solid var(--border);
+      padding: 48px 40px;
+      position: relative;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      overflow: hidden;
+    }
+    .strategy-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.03) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .strategy-card:hover {
+      border-color: rgba(201,168,76,0.5);
+      box-shadow: 0 16px 60px rgba(0,0,0,0.5);
+      transform: translateY(-4px);
+    }
+    .strategy-icon {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 28px;
+      color: var(--gold);
+    }
+    .strategy-name {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .strategy-tagline {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .strategy-card .gold-rule { margin-bottom: 24px; }
+    .strategy-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+    .strategy-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .strategy-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+    .strategy-bullets li::before {
+      content: '—';
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       INCOME FUND I
+    ══════════════════════════════════════════════════════════ */
+    #fund {
+      padding: var(--section-py) 0;
+      background: var(--navy);
+      position: relative;
+    }
+    .fund-card {
+      border: 1px solid rgba(201,168,76,0.4);
+      background: var(--navy-card);
+      padding: 72px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .fund-card::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fund-card::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fund-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .fund-header-left { flex: 1; min-width: 280px; }
+    .fund-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .fund-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 520px;
+      font-weight: 300;
+    }
+    .fund-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .fund-stat {
+      background: var(--navy);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .fund-stat-value {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .fund-stat-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .fund-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-weight: 300;
+      max-width: 700px;
+      margin-bottom: 36px;
+    }
+    .fund-cta-wrap { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+    /* ══════════════════════════════════════════════════════════
+       TEAM
+    ══════════════════════════════════════════════════════════ */
+    #team {
+      padding: var(--section-py) 0;
+      background: var(--navy-card);
+      border-top: 1px solid var(--border);
+    }
+    .team-header { text-align: center; margin-bottom: 64px; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .team-card {
+      background: var(--navy);
+      border: 1px solid var(--border);
+      padding: 48px 40px;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+    .team-card:hover {
+      border-color: rgba(201,168,76,0.45);
+      box-shadow: 0 12px 50px rgba(0,0,0,0.4);
+      transform: translateY(-3px);
+    }
+    .team-photo {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      margin-bottom: 28px;
+      background: var(--navy-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      overflow: hidden;
+    }
+    .team-photo svg { width: 40px; height: 40px; opacity: 0.5; }
+    .team-name {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .team-title {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .team-card .gold-rule { margin-bottom: 20px; }
+    .team-bio {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       PODCAST
+    ══════════════════════════════════════════════════════════ */
+    #podcast {
+      padding: 80px 0;
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+    }
+    .podcast-inner {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .podcast-left { flex: 1; min-width: 280px; }
+    .podcast-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .podcast-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+    .podcast-badge {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .podcast-icon-wrap {
+      width: 80px;
+      height: 80px;
+      border: 1px solid var(--border);
+      background: var(--navy-card);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .podcast-icon-wrap svg { width: 38px; height: 38px; }
+    .podcast-meta {
+      flex: 1;
+    }
+    .podcast-meta p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+    .podcast-platforms {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .platform-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════════════════════════ */
+    #contact {
+      padding: var(--section-py) 0;
+      background: var(--navy-card);
+      border-top: 1px solid var(--border);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-left {}
+    .contact-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .contact-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .contact-info-item svg {
+      width: 16px; height: 16px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .form-group label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--navy);
+      border: 1px solid rgba(154,144,128,0.25);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 13px 16px;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.25s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(154,144,128,0.5);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%239A9080' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 18px;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+    .form-group select option { background: var(--navy-card); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-disclaimer {
+      font-size: 0.75rem;
+      color: rgba(154,144,128,0.6);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════════════ */
+    #footer {
+      background: #060a14;
+      border-top: 1px solid var(--border);
+      padding: 60px 0 40px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .footer-brand {}
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 280px;
+    }
+    .footer-nav-title {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .footer-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-nav-links a {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      transition: color 0.25s;
+    }
+    .footer-nav-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      padding-top: 32px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-copyright {
+      font-size: 0.8rem;
+      color: rgba(154,144,128,0.5);
+      font-weight: 300;
+    }
+    .footer-legal-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-legal-links a {
+      font-size: 0.78rem;
+      color: rgba(154,144,128,0.5);
+      font-weight: 300;
+      transition: color 0.25s;
+    }
+    .footer-legal-links a:hover { color: var(--gold); }
+    .footer-disclaimer {
+      width: 100%;
+      font-size: 0.75rem;
+      color: rgba(154,144,128,0.4);
+      line-height: 1.7;
+      font-weight: 300;
+      padding-top: 20px;
+      border-top: 1px solid rgba(201,168,76,0.06);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      :root { --section-py: 80px; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .fund-stats { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --section-py: 64px; }
+      .container { padding: 0 20px; }
+
+      /* Nav */
+      .nav-links, .nav-right { display: none; }
+      .nav-hamburger { display: flex; }
+
+      /* Hero */
+      .hero-content { padding: 120px 0 80px; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+
+      /* Credibility */
+      .cred-inner { flex-direction: column; align-items: center; gap: 0; }
+      .cred-item { width: 100%; max-width: 100%; border-left: none !important; border-top: 1px solid var(--border); }
+      .cred-item:first-child { border-top: none; }
+
+      /* Strategy */
+      .strategy-grid { grid-template-columns: 1fr; }
+
+      /* Fund */
+      .fund-card { padding: 40px 24px; }
+      .fund-stats { grid-template-columns: repeat(2, 1fr); }
+
+      /* Team */
+      .team-grid { grid-template-columns: 1fr; }
+
+      /* Podcast */
+      .podcast-inner { flex-direction: column; gap: 40px; }
+
+      /* Form */
+      .form-row { grid-template-columns: 1fr; }
+
+      /* Footer */
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .fund-stats { grid-template-columns: 1fr 1fr; }
+      .fund-card { padding: 32px 18px; }
+      .strategy-card, .team-card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">Seven <span>Peak</span> Capital</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#strategy">Strategy</a></li>
+          <li><a href="#fund">Income Fund I</a></li>
+          <li><a href="#podcast">Insights</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="#contact" class="btn btn--outline" style="padding:10px 22px; font-size:11px;">Investor Login</a>
+        </div>
+        <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <nav class="nav-mobile" id="mobileMenu">
+    <button class="nav-mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#strategy" class="mobile-link">Strategy</a>
+    <a href="#fund" class="mobile-link">Income Fund I</a>
+    <a href="#podcast" class="mobile-link">Insights</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+    <a href="#contact" class="btn btn--gold" style="margin-top:12px;">Investor Login</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg" id="parallaxBg"></div>
+    <div class="hero-mountain"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow fade-in">Private Equity &amp; Private Credit</div>
+        <h1 class="hero-headline fade-in fade-in-delay-1">
+          Where Disciplined Capital<br />Meets <em>Enduring Returns</em>
+        </h1>
+        <p class="hero-sub fade-in fade-in-delay-2">
+          Seven Peak Capital invests in institutional-quality multifamily real estate and private credit, delivering superior risk-adjusted returns for accredited investors.
+        </p>
+        <div class="hero-ctas fade-in fade-in-delay-3">
+          <a href="#fund" class="btn btn--gold">Explore Our Fund</a>
+          <a href="#contact" class="btn btn--outline-white">Schedule a Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CREDIBILITY BAR
+  ═══════════════════════════════════════════════ -->
+  <section id="credibility">
+    <div class="container">
+      <div class="cred-inner">
+        <div class="cred-item fade-in">
+          <div class="cred-number">$50K</div>
+          <div class="cred-label">Minimum Investment</div>
+        </div>
+        <div class="cred-item fade-in fade-in-delay-1">
+          <div class="cred-number">10–12%</div>
+          <div class="cred-label">Preferred Return</div>
+        </div>
+        <div class="cred-item fade-in fade-in-delay-2">
+          <div class="cred-number">Quarterly</div>
+          <div class="cred-label">Distributions</div>
+        </div>
+        <div class="cred-item fade-in fade-in-delay-3">
+          <div class="cred-number">506(c)</div>
+          <div class="cred-label">Offering</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PHILOSOPHY / ABOUT
+  ═══════════════════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left">
+          <span class="section-label fade-in">Our Philosophy</span>
+          <div class="gold-rule fade-in"></div>
+          <h2 class="section-headline fade-in">Capital Allocation<br />as a Discipline</h2>
+          <p class="fade-in fade-in-delay-1">
+            Seven Peak Capital was built on a simple conviction: the most enduring wealth is created through disciplined, patient capital allocation in real assets. We combine institutional underwriting rigor with the agility of a boutique firm — identifying opportunities that large funds overlook and smaller operators can't execute.
+          </p>
+          <p class="fade-in fade-in-delay-2" style="margin-top:20px; font-size:1.05rem; color: var(--text-muted); line-height:1.85; font-weight:300;">
+            We are not a product factory. We are conviction investors who structure each opportunity to protect capital first and maximize returns second.
+          </p>
+        </div>
+        <div class="principles">
+          <div class="principle-card fade-in fade-in-delay-1">
+            <div class="principle-title">Operator-First Underwriting</div>
+            <p class="principle-text">We back experienced sponsors with verifiable track records and aligned incentives. The operator is the investment.</p>
+          </div>
+          <div class="principle-card fade-in fade-in-delay-2">
+            <div class="principle-title">Private Credit + Equity</div>
+            <p class="principle-text">We deploy capital across the capital stack to optimize returns at every risk tier — from senior secured credit to value-add equity.</p>
+          </div>
+          <div class="principle-card fade-in fade-in-delay-3">
+            <div class="principle-title">Investor-First Structure</div>
+            <p class="principle-text">Preferred returns, transparent fee structures, and regular communication are non-negotiable. Our interests are aligned with yours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       STRATEGY
+  ═══════════════════════════════════════════════ -->
+  <section id="strategy">
+    <div class="container">
+      <div class="strategy-header">
+        <span class="section-label fade-in">How We Invest</span>
+        <div class="gold-rule gold-rule--center fade-in"></div>
+        <h2 class="section-headline fade-in">Two Strategies. One Mission.</h2>
+      </div>
+      <div class="strategy-grid">
+
+        <!-- Card 1: Equity -->
+        <div class="strategy-card fade-in fade-in-delay-1">
+          <!-- Building icon -->
+          <svg class="strategy-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="16" width="32" height="30" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <rect x="16" y="28" width="6" height="8" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <rect x="30" y="28" width="6" height="8" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <rect x="22" y="28" width="8" height="18" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <polyline points="6,18 26,4 46,18" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <line x1="26" y1="4" x2="26" y2="16" stroke="currentColor" stroke-width="1.2"/>
+            <rect x="19" y="20" width="5" height="5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/>
+            <rect x="28" y="20" width="5" height="5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/>
+          </svg>
+          <div class="strategy-name">Multifamily Equity</div>
+          <div class="strategy-tagline">Real Estate Private Equity</div>
+          <div class="gold-rule"></div>
+          <p class="strategy-desc">
+            We acquire and asset-manage institutional-quality multifamily properties in high-growth U.S. markets. Our equity investments target value-add and core-plus opportunities with experienced operating partners.
+          </p>
+          <ul class="strategy-bullets">
+            <li>Value-add multifamily acquisitions</li>
+            <li>Class B/C workforce housing</li>
+            <li>LP co-investment structures</li>
+            <li>Target markets: Sun Belt + select growth metros</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Credit -->
+        <div class="strategy-card fade-in fade-in-delay-2">
+          <!-- Shield/credit icon -->
+          <svg class="strategy-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M26 6 L44 13 L44 28 C44 38 36 45 26 48 C16 45 8 38 8 28 L8 13 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <polyline points="18,26 23,31 34,20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="strategy-name">Private Credit</div>
+          <div class="strategy-tagline">Income Fund I — Now Open</div>
+          <div class="gold-rule"></div>
+          <p class="strategy-desc">
+            Seven Peak Income Fund I deploys capital into short-duration private credit instruments secured by real estate. Designed for investors seeking consistent income with capital preservation.
+          </p>
+          <ul class="strategy-bullets">
+            <li>10–12% preferred return</li>
+            <li>Quarterly cash distributions</li>
+            <li>$50K minimum | 506(c)</li>
+            <li>Accredited investors only</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       INCOME FUND I
+  ═══════════════════════════════════════════════ -->
+  <section id="fund">
+    <div class="container">
+      <div class="fund-card fade-in">
+        <div class="fund-header">
+          <div class="fund-header-left">
+            <span class="section-label">Now Open</span>
+            <div class="gold-rule"></div>
+            <h2 class="fund-headline">Seven Peak Income Fund I</h2>
+            <p class="fund-sub">
+              A private credit fund structured for accredited investors seeking consistent quarterly income backed by real estate.
+            </p>
+          </div>
+        </div>
+
+        <div class="fund-stats">
+          <div class="fund-stat">
+            <div class="fund-stat-value">10–12%</div>
+            <div class="fund-stat-label">Preferred Return</div>
+          </div>
+          <div class="fund-stat">
+            <div class="fund-stat-value">Quarterly</div>
+            <div class="fund-stat-label">Distribution</div>
+          </div>
+          <div class="fund-stat">
+            <div class="fund-stat-value">$50,000</div>
+            <div class="fund-stat-label">Minimum</div>
+          </div>
+          <div class="fund-stat">
+            <div class="fund-stat-value">506(c)</div>
+            <div class="fund-stat-label">Structure</div>
+          </div>
+        </div>
+
+        <p class="fund-body">
+          Income Fund I is a Rule 506(c) private credit vehicle structured as a Wyoming LLC. Investor accreditation is verified through Parallel Markets. This offering is open to accredited investors only and is designed to provide regular cash distributions backed by senior-secured real estate loans.
+        </p>
+
+        <div class="fund-cta-wrap">
+          <a href="#contact" class="btn btn--gold" style="font-size:13px; padding:16px 40px;">Request the Offering Memorandum</a>
+          <a href="#contact" class="btn btn--outline">Schedule a Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TEAM
+  ═══════════════════════════════════════════════ -->
+  <section id="team">
+    <div class="container">
+      <div class="team-header">
+        <span class="section-label fade-in">Principals</span>
+        <div class="gold-rule gold-rule--center fade-in"></div>
+        <h2 class="section-headline fade-in">Built by Operators.<br />Run by Investors.</h2>
+      </div>
+      <div class="team-grid">
+
+        <div class="team-card fade-in fade-in-delay-1">
+          <div class="team-photo">
+            <!-- Person silhouette placeholder -->
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="14" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <path d="M4 38 C4 28 36 28 36 38" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <div class="team-name">Bryan Morris</div>
+          <div class="team-title">Co-Founder &amp; Managing Partner</div>
+          <div class="gold-rule"></div>
+          <p class="team-bio">
+            Bryan brings a decade of institutional sales experience and real estate investment expertise spanning single-family, multifamily, and private credit. He began building his portfolio in 2016 using the BRRRR strategy and has since expanded into LP syndications and private credit fund management.
+          </p>
+        </div>
+
+        <div class="team-card fade-in fade-in-delay-2">
+          <div class="team-photo">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="14" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <path d="M4 38 C4 28 36 28 36 38" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <div class="team-name">Chris Ward</div>
+          <div class="team-title">Co-Founder &amp; Managing Partner</div>
+          <div class="gold-rule"></div>
+          <p class="team-bio">
+            Chris brings deep operational and strategic expertise to Seven Peak's investment process, co-leading deal sourcing, capital formation, and investor relations. His background spans institutional operations, business development, and real estate capital markets.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PODCAST
+  ═══════════════════════════════════════════════ -->
+  <section id="podcast">
+    <div class="container">
+      <div class="podcast-inner">
+        <div class="podcast-left fade-in">
+          <span class="section-label">Insights</span>
+          <div class="gold-rule"></div>
+          <h2 class="podcast-headline">Peak Profits Podcast</h2>
+          <p class="podcast-desc">
+            Straight talk on real estate investing, private credit, and building wealth outside Wall Street. New episodes every week — no fluff, no filler.
+          </p>
+          <a href="#" class="btn btn--outline">Listen Now</a>
+        </div>
+        <div class="podcast-badge fade-in fade-in-delay-1">
+          <div class="podcast-icon-wrap">
+            <!-- Microphone icon -->
+            <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="13" y="2" width="12" height="20" rx="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <path d="M6 19 C6 27 32 27 32 19" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <line x1="19" y1="27" x2="19" y2="36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="13" y1="36" x2="25" y2="36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="podcast-meta">
+            <p>Available on all major platforms</p>
+            <div class="podcast-platforms">
+              <span class="platform-tag">Spotify</span>
+              <span class="platform-tag">Apple Podcasts</span>
+              <span class="platform-tag">YouTube</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left fade-in">
+          <span class="section-label">Get in Touch</span>
+          <div class="gold-rule"></div>
+          <h2 class="contact-headline">Ready to Explore<br />an Allocation?</h2>
+          <p class="contact-sub">
+            We work exclusively with accredited investors. If you're evaluating a private credit or equity allocation, we'd welcome the conversation.
+          </p>
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <!-- Email icon -->
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <polyline points="1,3.5 8,9 15,3.5" stroke="currentColor" stroke-width="1.2" fill="none"/>
+              </svg>
+              <span>investors@sevenpeakcapital.com</span>
+            </div>
+            <div class="contact-info-item">
+              <!-- Location icon -->
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 1 C5.24 1 3 3.24 3 6 C3 9.5 8 15 8 15 C8 15 13 9.5 13 6 C13 3.24 10.76 1 8 1 Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.2" fill="none"/>
+              </svg>
+              <span>United States — Accredited Investors Only</span>
+            </div>
+            <div class="contact-info-item" style="margin-top:8px;">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <polyline points="8,4 8,8.5 11,10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+              </svg>
+              <span>Typical response within 1 business day</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in fade-in-delay-1">
+          <!-- Netlify Forms -->
+          <form name="investor-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+            <input type="hidden" name="form-name" value="investor-inquiry" />
+            <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullname">Full Name *</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Jane Smith" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone (Optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" />
+              </div>
+              <div class="form-group">
+                <label for="accredited">Accredited Investor? *</label>
+                <select id="accredited" name="accredited" required>
+                  <option value="" disabled selected>Select</option>
+                  <option value="yes">Yes — I am an accredited investor</option>
+                  <option value="no">No — I am not accredited</option>
+                  <option value="unsure">Unsure — I'd like to learn more</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message / How Can We Help?</label>
+              <textarea id="message" name="message" placeholder="Tell us about your investment goals or questions about the fund..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--gold" style="width:100%; font-size:13px; padding:16px;">Request a Call</button>
+
+            <p class="form-disclaimer">
+              Seven Peak Capital does not provide investment advice. All investments involve risk. This is not an offer to sell securities. By submitting, you agree to be contacted by our team.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Seven Peak Capital</div>
+          <p class="footer-tagline">
+            Disciplined capital allocation in institutional real estate and private credit — built for accredited investors who demand more.
+          </p>
+        </div>
+        <div>
+          <div class="footer-nav-title">Navigation</div>
+          <nav class="footer-nav-links">
+            <a href="#about">About</a>
+            <a href="#strategy">Strategy</a>
+            <a href="#fund">Income Fund I</a>
+            <a href="#team">Principals</a>
+            <a href="#podcast">Insights</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer-nav-title">Legal</div>
+          <nav class="footer-nav-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Disclosures</a>
+            <a href="#">Form ADV</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 Seven Peak Capital LLC. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+          <a href="#">Disclosures</a>
+        </div>
+        <p class="footer-disclaimer">
+          Seven Peak Capital LLC is not a registered investment advisor. Securities offerings are made only to accredited investors pursuant to Rule 506(c) of Regulation D. Past performance is not indicative of future results. All investments involve risk, including the possible loss of principal. This website does not constitute an offer to sell, or a solicitation of an offer to buy, any securities. Any such offer or solicitation will be made only by means of a confidential private placement memorandum and only in jurisdictions where permitted by law.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════ -->
+  <script>
+    // ── Navbar scroll behavior ──────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ── Parallax hero ───────────────────────────────
+    const parallaxBg = document.getElementById('parallaxBg');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < window.innerHeight * 1.5) {
+        const offset = window.scrollY * 0.35;
+        parallaxBg.style.transform = `translateY(${offset}px)`;
+      }
+    }, { passive: true });
+
+    // ── Intersection Observer (fade-in) ─────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── Mobile hamburger menu ───────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    mobileClose.addEventListener('click', closeMobile);
+    document.querySelectorAll('.mobile-link, .nav-mobile .btn').forEach(link => {
+      link.addEventListener('click', closeMobile);
+    });
+
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ── Hero elements animate on load ──────────────
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('#hero .fade-in').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), 200 + i * 160);
+      });
+    });
+  </script>
+
+</body>
+</html>
