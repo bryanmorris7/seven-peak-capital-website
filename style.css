@@ -782,17 +782,17 @@ p {
 }
 .team-photo-wrap { margin-bottom: 24px; display: flex; justify-content: center; }
 .team-photo {
-  width: 88px;
-  height: 88px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  border: 1px solid var(--border);
+  border: 3px solid var(--border);
   background: var(--bg-alt);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin: 0 auto;
 }
-.team-photo svg { width: 36px; height: 36px; color: var(--border-hover); }
 .team-name {
   font-family: var(--font-serif);
   font-size: 26px;
