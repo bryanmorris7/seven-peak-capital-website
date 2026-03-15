@@ -5,928 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Seven Peak Capital — Institutional-quality multifamily real estate and private credit for accredited investors." />
   <title>Seven Peak Capital | Private Equity &amp; Private Credit</title>
-
-  <!-- Favicon: mountain peaks SVG -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0%25' stop-color='%23896101'/%3E%3Cstop offset='100%25' stop-color='%23C09A2B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='4,28 14,6 24,28' fill='url(%23g)'/%3E%3Cpolyline points='16,28 24,10 32,28' fill='none' stroke='url(%23g)' stroke-width='2.2' stroke-linejoin='miter'/%3E%3C/svg%3E" />
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
-
-  <style>
-    /* ═══════════════════════════════════════════════════════
-       CSS CUSTOM PROPERTIES
-    ═══════════════════════════════════════════════════════ */
-    :root {
-      --bg:           #FAFAF8;
-      --bg-alt:       #F4F2EE;
-      --text:         #1A1A1A;
-      --text-mid:     #6B6560;
-      --text-light:   #9A9080;
-      --gold:         #896101;
-      --gold-hover:   #C09A2B;
-      --border:       #E5E0D8;
-      --border-hover: #C8C0B4;
-      --card-bg:      #FFFFFF;
-      --footer-bg:    #000000;
-      --font-serif:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-      --font-sans:    'DM Sans', system-ui, -apple-system, sans-serif;
-      --max-w:        1140px;
-      --section-py:   100px;
-      --card-pad:     40px;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       RESET & BASE
-    ═══════════════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-weight: 400;
-      line-height: 1.75;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    img { display: block; max-width: 100%; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    button { font-family: var(--font-sans); cursor: pointer; border: none; background: none; }
-
-    /* ═══════════════════════════════════════════════════════
-       LAYOUT UTILITIES
-    ═══════════════════════════════════════════════════════ */
-    .container {
-      width: 100%;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       TYPOGRAPHY SYSTEM
-    ═══════════════════════════════════════════════════════ */
-    .label {
-      display: block;
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-
-    .gold-rule {
-      display: block;
-      width: 60px;
-      height: 1px;
-      background: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-family: var(--font-serif);
-      font-weight: 300;
-      font-size: clamp(44px, 6.5vw, 72px);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      color: var(--text);
-    }
-
-    h2 {
-      font-family: var(--font-serif);
-      font-weight: 300;
-      font-size: clamp(34px, 4.5vw, 52px);
-      line-height: 1.12;
-      letter-spacing: -0.01em;
-      color: var(--text);
-    }
-
-    h3 {
-      font-family: var(--font-sans);
-      font-weight: 400;
-      font-size: 17px;
-      letter-spacing: 0.02em;
-      color: var(--text);
-    }
-
-    p {
-      font-size: 16px;
-      color: var(--text-mid);
-      line-height: 1.75;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       BUTTONS
-    ═══════════════════════════════════════════════════════ */
-    .btn {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 14px 32px;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .btn--dark {
-      background: var(--text);
-      color: #FFFFFF;
-      border: 1px solid var(--text);
-    }
-    .btn--dark:hover {
-      background: #333333;
-      border-color: #333333;
-    }
-    .btn--outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--text);
-    }
-    .btn--outline:hover {
-      background: var(--text);
-      color: #FFFFFF;
-    }
-    .btn--outline-mid {
-      background: transparent;
-      color: var(--text-mid);
-      border: 1px solid var(--border-hover);
-    }
-    .btn--outline-mid:hover {
-      border-color: var(--text);
-      color: var(--text);
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       FADE-IN SCROLL ANIMATION
-    ═══════════════════════════════════════════════════════ */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .fade-up-d1 { transition-delay: 0.10s; }
-    .fade-up-d2 { transition-delay: 0.20s; }
-    .fade-up-d3 { transition-delay: 0.30s; }
-    .fade-up-d4 { transition-delay: 0.40s; }
-
-    /* ═══════════════════════════════════════════════════════
-       NAVIGATION
-    ═══════════════════════════════════════════════════════ */
-    #navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: #FFFFFF;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-      gap: 32px;
-    }
-
-    .nav-logo-link { flex-shrink: 0; line-height: 0; }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-      color: var(--text-mid);
-      transition: color 0.25s;
-      position: relative;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-cta {
-      flex-shrink: 0;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      background: var(--text);
-      padding: 9px 20px;
-      transition: background 0.25s;
-    }
-    .nav-cta:hover { background: #333333; }
-
-    /* Hamburger */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--text);
-      transition: all 0.3s;
-    }
-
-    /* Mobile menu overlay */
-    .nav-mobile {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: #FFFFFF;
-      z-index: 999;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 36px;
-    }
-    .nav-mobile.open { display: flex; }
-    .nav-mobile a {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      color: var(--text-mid);
-      transition: color 0.2s;
-    }
-    .nav-mobile a:hover { color: var(--gold); }
-    .nav-mobile-close {
-      position: absolute;
-      top: 24px; right: 32px;
-      font-size: 24px;
-      color: var(--text);
-      background: none; border: none; cursor: pointer;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       HERO
-    ═══════════════════════════════════════════════════════ */
-    #hero {
-      background: var(--bg);
-      padding-top: 148px;
-      padding-bottom: 100px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .hero-left {}
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-    .hero-eyebrow .gold-rule { margin: 0; flex-shrink: 0; }
-    .hero-eyebrow .label { margin: 0; }
-    .hero-h1 {
-      margin-bottom: 10px;
-    }
-    .hero-gold-rule {
-      display: block;
-      width: 60px;
-      height: 1px;
-      background: var(--gold);
-      margin: 24px 0 28px;
-    }
-    .hero-sub {
-      font-size: 18px;
-      color: var(--text-mid);
-      line-height: 1.65;
-      max-width: 480px;
-      margin-bottom: 44px;
-      font-weight: 400;
-    }
-    .hero-ctas {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    /* Right: abstract mountain line art */
-    .hero-right {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.9;
-    }
-    .hero-right svg {
-      width: 100%;
-      max-width: 480px;
-      height: auto;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       CREDIBILITY BAR
-    ═══════════════════════════════════════════════════════ */
-    #credibility {
-      background: var(--card-bg);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 48px 0;
-    }
-    .cred-inner {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .cred-item {
-      text-align: center;
-      padding: 8px 24px;
-    }
-    .cred-item + .cred-item {
-      border-left: 1px solid var(--border);
-    }
-    .cred-number {
-      font-family: var(--font-serif);
-      font-weight: 500;
-      font-size: clamp(36px, 4vw, 52px);
-      color: var(--text);
-      line-height: 1;
-      letter-spacing: -0.01em;
-      margin-bottom: 8px;
-    }
-    .cred-label {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-light);
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       PHILOSOPHY / ABOUT
-    ═══════════════════════════════════════════════════════ */
-    #about {
-      background: var(--bg-alt);
-      padding: var(--section-py) 0;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .about-left {}
-    .about-left h2 { margin-bottom: 28px; }
-    .about-left p { margin-bottom: 20px; }
-    .about-left p:last-child { margin-bottom: 0; }
-
-    .principles {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .principle-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: var(--card-pad);
-      transition: border-color 0.3s ease;
-    }
-    .principle-card:hover { border-color: var(--border-hover); }
-    .principle-num {
-      font-family: var(--font-serif);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      margin-bottom: 14px;
-    }
-    .principle-title {
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-    .principle-text {
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       STRATEGY
-    ═══════════════════════════════════════════════════════ */
-    #strategy {
-      background: var(--card-bg);
-      padding: var(--section-py) 0;
-      border-top: 1px solid var(--border);
-    }
-    .strategy-header {
-      margin-bottom: 56px;
-    }
-    .strategy-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .strategy-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: var(--card-pad);
-      transition: border-color 0.3s ease;
-    }
-    .strategy-card:hover { border-color: var(--border-hover); }
-    .strategy-card-label {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .strategy-card-title {
-      font-family: var(--font-serif);
-      font-size: 28px;
-      font-weight: 300;
-      color: var(--text);
-      letter-spacing: 0.01em;
-      margin-bottom: 6px;
-    }
-    .strategy-card-sub {
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      color: var(--text-light);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .strategy-card .gold-rule { margin-bottom: 20px; }
-    .strategy-desc {
-      font-size: 15px;
-      color: var(--text-mid);
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
-    .strategy-bullets {
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-    .strategy-bullets li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.5;
-    }
-    .strategy-bullets li::before {
-      content: '—';
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       INCOME FUND I
-    ═══════════════════════════════════════════════════════ */
-    #fund {
-      background: var(--bg-alt);
-      padding: var(--section-py) 0;
-      border-top: 1px solid var(--border);
-    }
-    .fund-box {
-      border: 1px solid #C09A2B;
-      background: var(--card-bg);
-      padding: 64px;
-    }
-    .fund-top {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 60px;
-      align-items: start;
-      margin-bottom: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid var(--border);
-    }
-    .fund-top-left h2 { margin-bottom: 20px; }
-    .fund-top-left p { font-size: 17px; line-height: 1.65; }
-
-    .fund-stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      align-self: start;
-    }
-    .fund-stat {
-      background: var(--card-bg);
-      padding: 28px 24px;
-      text-align: center;
-    }
-    .fund-stat-value {
-      font-family: var(--font-serif);
-      font-size: clamp(28px, 3vw, 40px);
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1;
-      letter-spacing: -0.01em;
-      margin-bottom: 7px;
-    }
-    .fund-stat-label {
-      font-family: var(--font-sans);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-light);
-    }
-
-    .fund-bottom {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .fund-body-text {
-      flex: 1;
-      min-width: 280px;
-      font-size: 15px;
-      color: var(--text-mid);
-      line-height: 1.8;
-    }
-    .fund-cta-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-end;
-      flex-shrink: 0;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       TEAM
-    ═══════════════════════════════════════════════════════ */
-    #team {
-      background: var(--card-bg);
-      padding: var(--section-py) 0;
-      border-top: 1px solid var(--border);
-    }
-    .team-header { margin-bottom: 60px; }
-    .team-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-    }
-    .team-card { padding: 0; }
-    .team-photo-wrap {
-      margin-bottom: 24px;
-    }
-    .team-photo {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--bg-alt);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .team-photo svg {
-      width: 36px; height: 36px;
-      color: var(--border-hover);
-    }
-    .team-name {
-      font-family: var(--font-serif);
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--text);
-      letter-spacing: 0.01em;
-      margin-bottom: 4px;
-    }
-    .team-title {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-    .team-divider {
-      width: 40px;
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 20px;
-    }
-    .team-bio {
-      font-size: 15px;
-      color: var(--text-mid);
-      line-height: 1.75;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       PODCAST
-    ═══════════════════════════════════════════════════════ */
-    #podcast {
-      background: var(--bg-alt);
-      padding: 72px 0;
-      border-top: 1px solid var(--border);
-    }
-    .podcast-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 60px;
-      flex-wrap: wrap;
-    }
-    .podcast-left { flex: 1; min-width: 280px; }
-    .podcast-left h2 {
-      font-size: clamp(28px, 3.5vw, 40px);
-      margin-bottom: 14px;
-    }
-    .podcast-left p {
-      font-size: 16px;
-      color: var(--text-mid);
-      max-width: 420px;
-      margin-bottom: 28px;
-    }
-    .podcast-right { flex-shrink: 0; }
-    .podcast-platforms {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .platform-chip {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      border: 1px solid var(--border);
-      padding: 5px 12px;
-      background: var(--card-bg);
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       CONTACT
-    ═══════════════════════════════════════════════════════ */
-    #contact {
-      background: var(--bg-alt);
-      padding: var(--section-py) 0;
-      border-top: 1px solid var(--border);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .contact-left h2 { margin-bottom: 20px; }
-    .contact-left > p { margin-bottom: 36px; }
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .contact-info-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.5;
-    }
-    .contact-info-row svg {
-      width: 15px; height: 15px;
-      color: var(--gold);
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* Form */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .form-group label {
-      font-family: var(--font-sans);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 400;
-      padding: 12px 14px;
-      outline: none;
-      transition: border-color 0.25s;
-      -webkit-appearance: none;
-      appearance: none;
-      border-radius: 0;
-      width: 100%;
-    }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: var(--text-light); }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--gold); }
-    .form-group select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B6560' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      background-size: 16px;
-      padding-right: 36px;
-      cursor: pointer;
-      color: var(--text);
-    }
-    .form-group select option { background: #FFFFFF; color: var(--text); }
-    .form-group textarea { resize: vertical; min-height: 100px; }
-    .form-submit { width: 100%; padding: 15px; font-size: 13px; }
-    .form-legal {
-      font-size: 12px;
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════════════════════ */
-    #footer {
-      background: var(--footer-bg);
-      padding: 64px 0 40px;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr;
-      gap: 60px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .footer-logo-wrap { margin-bottom: 16px; line-height: 0; }
-    .footer-tagline {
-      font-size: 14px;
-      color: rgba(255,255,255,0.4);
-      line-height: 1.7;
-      max-width: 280px;
-    }
-    .footer-col-title {
-      font-family: var(--font-sans);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      margin-bottom: 18px;
-    }
-    .footer-nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer-nav-links a {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      font-weight: 400;
-      transition: color 0.25s;
-    }
-    .footer-nav-links a:hover { color: rgba(255,255,255,0.9); }
-    .footer-bottom {
-      padding-top: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .footer-copyright {
-      font-size: 12px;
-      color: rgba(255,255,255,0.25);
-    }
-    .footer-legal-links {
-      display: flex;
-      gap: 20px;
-    }
-    .footer-legal-links a {
-      font-size: 12px;
-      color: rgba(255,255,255,0.25);
-      transition: color 0.25s;
-    }
-    .footer-legal-links a:hover { color: rgba(255,255,255,0.6); }
-    .footer-disclaimer {
-      width: 100%;
-      font-size: 11px;
-      color: rgba(255,255,255,0.2);
-      line-height: 1.75;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      margin-top: 12px;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      :root { --section-py: 80px; }
-      .container { padding: 0 28px; }
-      .hero-grid { gap: 40px; }
-      .about-grid { grid-template-columns: 1fr; gap: 48px; }
-      .fund-top { grid-template-columns: 1fr; gap: 40px; }
-      .fund-stats-grid { grid-template-columns: repeat(4,1fr); }
-      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-    }
-
-    @media (max-width: 768px) {
-      :root { --section-py: 64px; --card-pad: 28px; }
-      .container { padding: 0 20px; }
-      .nav-links, .nav-cta { display: none; }
-      .nav-hamburger { display: flex; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
-      .cred-inner { grid-template-columns: 1fr 1fr; }
-      .cred-item + .cred-item:nth-child(odd) { border-left: none; }
-      .cred-item:nth-child(3),
-      .cred-item:nth-child(4) { border-top: 1px solid var(--border); }
-      .strategy-grid { grid-template-columns: 1fr; }
-      .fund-box { padding: 32px 24px; }
-      .fund-stats-grid { grid-template-columns: repeat(2,1fr); }
-      .fund-cta-group { align-items: flex-start; }
-      .team-grid { grid-template-columns: 1fr; gap: 40px; }
-      .podcast-inner { flex-direction: column; gap: 32px; }
-      .form-row { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
-    }
-
-    @media (max-width: 480px) {
-      .cred-inner { grid-template-columns: 1fr; }
-      .cred-item + .cred-item { border-left: none; border-top: 1px solid var(--border); }
-      .hero-ctas { flex-direction: column; align-items: flex-start; }
-      .fund-stats-grid { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════════════
-       NAVIGATION
-  ═══════════════════════════════════════════════════ -->
+  <!-- NAVIGATION -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-inner">
-
-        <a href="#hero" class="nav-logo-link" aria-label="Seven Peak Capital — Home">
-          <img src="Seven Peak Capital Logo-01 (9).png" alt="Seven Peak Capital" style="height: 36px; width: auto; display: block;">
+        <a href="index.html" class="nav-logo-link" aria-label="Seven Peak Capital — Home">
+          <img src="Seven Peak Capital Logo-01 (9).png" alt="Seven Peak Capital" style="height:56px;width:auto;display:block;">
         </a>
-
         <ul class="nav-links" role="list">
-          <li><a href="#about">About</a></li>
-          <li><a href="#strategy">Strategy</a></li>
-          <li><a href="#fund">Income Fund I</a></li>
-          <li><a href="#podcast">Insights</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="strategy.html">Strategy</a></li>
+          <li><a href="income-fund.html">Income Fund I</a></li>
+          <li><a href="#">Insights</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-
-        <a href="#contact" class="nav-cta">Investor Login</a>
-
+        <a href="https://sevenpeakcapital.investnext.com/" class="nav-cta" target="_blank" rel="noopener noreferrer">Investor Login</a>
         <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -934,24 +35,20 @@
     </div>
   </nav>
 
-  <!-- Mobile nav -->
   <nav class="nav-mobile" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
     <button class="nav-mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
-    <a href="#about" class="mobile-link">About</a>
-    <a href="#strategy" class="mobile-link">Strategy</a>
-    <a href="#fund" class="mobile-link">Income Fund I</a>
-    <a href="#podcast" class="mobile-link">Insights</a>
-    <a href="#contact" class="mobile-link">Contact</a>
-    <a href="#contact" class="btn btn--dark" style="margin-top:8px; font-size:12px;">Investor Login</a>
+    <a href="about.html" class="mobile-link">About</a>
+    <a href="strategy.html" class="mobile-link">Strategy</a>
+    <a href="income-fund.html" class="mobile-link">Income Fund I</a>
+    <a href="#" class="mobile-link">Insights</a>
+    <a href="contact.html" class="mobile-link">Contact</a>
+    <a href="https://sevenpeakcapital.investnext.com/" class="btn btn--dark" style="margin-top:8px;font-size:12px;" target="_blank" rel="noopener noreferrer">Investor Login</a>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════════════════ -->
+  <!-- HERO -->
   <section id="hero">
     <div class="container">
       <div class="hero-grid">
-
         <div class="hero-left">
           <div class="hero-eyebrow fade-up">
             <span class="gold-rule" style="margin:0;"></span>
@@ -965,15 +62,12 @@
             Seven Peak Capital invests in institutional-quality multifamily real estate and private credit, delivering superior risk-adjusted returns for accredited investors.
           </p>
           <div class="hero-ctas fade-up fade-up-d3">
-            <a href="#fund" class="btn btn--dark">Explore Our Fund</a>
-            <a href="#contact" class="btn btn--outline">Schedule a Call</a>
+            <a href="income-fund.html" class="btn btn--dark">Explore Our Fund</a>
+            <a href="contact.html" class="btn btn--outline">Schedule a Call</a>
           </div>
         </div>
-
-        <!-- Abstract mountain line art — right column -->
         <div class="hero-right fade-up fade-up-d2" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" fill="none">
-            <!-- Background grid — very subtle -->
             <line x1="0" y1="360" x2="480" y2="360" stroke="#E5E0D8" stroke-width="0.5"/>
             <line x1="0" y1="300" x2="480" y2="300" stroke="#E5E0D8" stroke-width="0.5"/>
             <line x1="0" y1="240" x2="480" y2="240" stroke="#E5E0D8" stroke-width="0.5"/>
@@ -984,44 +78,23 @@
             <line x1="240" y1="0" x2="240" y2="360" stroke="#E5E0D8" stroke-width="0.5"/>
             <line x1="320" y1="0" x2="320" y2="360" stroke="#E5E0D8" stroke-width="0.5"/>
             <line x1="400" y1="0" x2="400" y2="360" stroke="#E5E0D8" stroke-width="0.5"/>
-            <!-- Back range — lightest -->
-            <polyline
-              points="0,310 60,240 120,265 180,190 240,215 300,155 360,180 420,120 480,145"
-              stroke="#D8D2C8" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
-            <!-- Mid range -->
-            <polyline
-              points="0,340 40,280 100,300 160,220 230,248 290,170 350,195 410,135 480,165"
-              stroke="#C4BDB0" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
-            <!-- Main peak — Seven Peak: left peak solid fill, right outline -->
-            <!-- Filled left peak -->
-            <polygon
-              points="120,360 230,80 340,360"
-              fill="#896101" fill-opacity="0.06"/>
-            <polyline
-              points="120,360 230,80 340,360"
-              stroke="#896101" stroke-width="1.5" fill="none" stroke-linejoin="miter"/>
-            <!-- Outline right peak (chevron) -->
-            <polyline
-              points="280,360 370,130 460,360"
-              stroke="#C09A2B" stroke-width="1.5" fill="none" stroke-linejoin="miter" stroke-dasharray="0"/>
-            <!-- Summit markers -->
+            <polyline points="0,310 60,240 120,265 180,190 240,215 300,155 360,180 420,120 480,145" stroke="#D8D2C8" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+            <polyline points="0,340 40,280 100,300 160,220 230,248 290,170 350,195 410,135 480,165" stroke="#C4BDB0" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+            <polygon points="120,360 230,80 340,360" fill="#896101" fill-opacity="0.06"/>
+            <polyline points="120,360 230,80 340,360" stroke="#896101" stroke-width="1.5" fill="none" stroke-linejoin="miter"/>
+            <polyline points="280,360 370,130 460,360" stroke="#C09A2B" stroke-width="1.5" fill="none" stroke-linejoin="miter"/>
             <circle cx="230" cy="80" r="3" fill="#896101"/>
             <circle cx="370" cy="130" r="3" fill="#C09A2B" fill-opacity="0.7"/>
-            <!-- Elevation label -->
-            <text x="234" y="76" font-family="'DM Sans', sans-serif" font-size="9" fill="#896101" letter-spacing="1" font-weight="500">PEAK I</text>
-            <text x="374" y="126" font-family="'DM Sans', sans-serif" font-size="9" fill="#C09A2B" letter-spacing="1" font-weight="500">PEAK II</text>
-            <!-- Base horizon line -->
+            <text x="236" y="74" font-family="'DM Sans', sans-serif" font-size="9" fill="#896101" letter-spacing="1" font-weight="500">PEAK I</text>
+            <text x="376" y="124" font-family="'DM Sans', sans-serif" font-size="9" fill="#C09A2B" letter-spacing="1" font-weight="500">PEAK II</text>
             <line x1="0" y1="360" x2="480" y2="360" stroke="#C09A2B" stroke-width="1" stroke-opacity="0.4"/>
           </svg>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       CREDIBILITY BAR
-  ═══════════════════════════════════════════════════ -->
+  <!-- CREDIBILITY BAR -->
   <section id="credibility">
     <div class="container">
       <div class="cred-inner">
@@ -1045,25 +118,18 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       PHILOSOPHY / ABOUT
-  ═══════════════════════════════════════════════════ -->
+  <!-- PHILOSOPHY / ABOUT -->
   <section id="about">
     <div class="container">
       <div class="about-grid">
-
         <div class="about-left">
           <span class="label fade-up">Our Philosophy</span>
           <span class="gold-rule fade-up"></span>
           <h2 class="fade-up">Capital Allocation as a Discipline</h2>
-          <p class="fade-up fade-up-d1">
-            Seven Peak Capital was built on a simple conviction: the most enduring wealth is created through disciplined, patient capital allocation in real assets. We combine institutional underwriting rigor with the agility of a boutique firm — identifying opportunities that large funds overlook and smaller operators can't execute.
-          </p>
-          <p class="fade-up fade-up-d2" style="margin-top:18px;">
-            We are not a product factory. We are conviction investors who structure each opportunity to protect capital first and maximize returns second.
-          </p>
+          <p class="fade-up fade-up-d1">Seven Peak Capital was built on a simple conviction: the most enduring wealth is created through disciplined, patient capital allocation in real assets. We combine institutional underwriting rigor with the agility of a boutique firm — identifying opportunities that large funds overlook and smaller operators can't execute.</p>
+          <p class="fade-up fade-up-d2" style="margin-top:18px;">We are not a product factory. We are conviction investors who structure each opportunity to protect capital first and maximize returns second.</p>
+          <a href="about.html" class="btn btn--outline fade-up fade-up-d3" style="margin-top:32px;font-size:12px;">Our Story</a>
         </div>
-
         <div class="principles">
           <div class="principle-card fade-up fade-up-d1">
             <div class="principle-num">01</div>
@@ -1081,14 +147,11 @@
             <p class="principle-text">Preferred returns, transparent fee structures, and regular communication are non-negotiable. Our interests are aligned with yours.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       STRATEGY
-  ═══════════════════════════════════════════════════ -->
+  <!-- STRATEGY -->
   <section id="strategy">
     <div class="container">
       <div class="strategy-header">
@@ -1097,16 +160,12 @@
         <h2 class="fade-up">Two Strategies. One Mission.</h2>
       </div>
       <div class="strategy-grid">
-
-        <!-- Multifamily Equity -->
         <div class="strategy-card fade-up fade-up-d1">
           <div class="strategy-card-label">Multifamily Equity</div>
           <div class="strategy-card-title">Real Estate Private Equity</div>
           <div class="strategy-card-sub">Institutional-grade acquisitions</div>
           <span class="gold-rule"></span>
-          <p class="strategy-desc">
-            We acquire and asset-manage institutional-quality multifamily properties in high-growth U.S. markets. Our equity investments target value-add and core-plus opportunities with experienced operating partners.
-          </p>
+          <p class="strategy-desc">We acquire and asset-manage institutional-quality multifamily properties in high-growth U.S. markets. Our equity investments target value-add and core-plus opportunities with experienced operating partners.</p>
           <ul class="strategy-bullets">
             <li>Value-add multifamily acquisitions</li>
             <li>Class B/C workforce housing</li>
@@ -1114,16 +173,12 @@
             <li>Target markets: Sun Belt + select growth metros</li>
           </ul>
         </div>
-
-        <!-- Private Credit -->
         <div class="strategy-card fade-up fade-up-d2">
           <div class="strategy-card-label">Private Credit</div>
           <div class="strategy-card-title">Income Fund I — Now Open</div>
           <div class="strategy-card-sub">Real estate-secured lending</div>
           <span class="gold-rule"></span>
-          <p class="strategy-desc">
-            Seven Peak Income Fund I deploys capital into short-duration private credit instruments secured by real estate. Designed for investors seeking consistent income with capital preservation.
-          </p>
+          <p class="strategy-desc">Seven Peak Income Fund I deploys capital into short-duration private credit instruments secured by real estate. Designed for investors seeking consistent income with capital preservation.</p>
           <ul class="strategy-bullets">
             <li>10–12% preferred return</li>
             <li>Quarterly cash distributions</li>
@@ -1131,14 +186,11 @@
             <li>Accredited investors only</li>
           </ul>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       INCOME FUND I
-  ═══════════════════════════════════════════════════ -->
+  <!-- INCOME FUND I -->
   <section id="fund">
     <div class="container">
       <div class="fund-box fade-up">
@@ -1169,21 +221,226 @@
           </div>
         </div>
         <div class="fund-bottom">
-          <p class="fund-body-text">
-            Income Fund I is a Rule 506(c) private credit vehicle structured as a Wyoming LLC. Investor accreditation is verified through Parallel Markets. This offering is open to accredited investors only and is designed to provide regular cash distributions backed by senior-secured real estate loans.
-          </p>
+          <p class="fund-body-text">Income Fund I is a Rule 506(c) private credit vehicle structured as a Wyoming LLC. Investor accreditation is verified through Parallel Markets. This offering is open to accredited investors only and is designed to provide regular cash distributions backed by senior-secured real estate loans.</p>
           <div class="fund-cta-group">
-            <a href="#contact" class="btn btn--dark" style="font-size:13px; padding:15px 28px;">Request the Offering Memorandum</a>
-            <a href="#contact" class="btn btn--outline-mid" style="font-size:13px; padding:15px 28px; text-align:center;">Schedule a Call</a>
+            <a href="contact.html" class="btn btn--dark" style="font-size:13px;padding:15px 28px;">Request the Offering Memorandum</a>
+            <a href="contact.html" class="btn btn--outline-mid" style="font-size:13px;padding:15px 28px;text-align:center;">Schedule a Call</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       TEAM
-  ═══════════════════════════════════════════════════ -->
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="portfolio-header">
+        <span class="label fade-up">Our Portfolio</span>
+        <span class="gold-rule fade-up"></span>
+        <h2 class="fade-up">Institutional-Quality Assets.<br />Proven Execution.</h2>
+      </div>
+
+      <!-- Row 1: LP deals (3 columns) -->
+      <div class="portfolio-grid">
+
+        <!-- Grand Riviera -->
+        <div class="portfolio-card fade-up fade-up-d1">
+          <div class="slideshow-wrap" data-slideshow>
+            <span class="prop-badge prop-badge--subscribed">Fully Subscribed</span>
+            <div class="slideshow-slides">
+              <img class="slideshow-slide" src="GrandRiveria-1.png" alt="Grand Riviera" loading="lazy">
+              <img class="slideshow-slide" src="grand2.jpg" alt="Grand Riviera" loading="lazy">
+              <img class="slideshow-slide" src="grand3.jpg" alt="Grand Riviera" loading="lazy">
+              <img class="slideshow-slide" src="grand5.jpg" alt="Grand Riviera" loading="lazy">
+            </div>
+            <button class="slide-btn slide-btn--prev" aria-label="Previous image">
+              <svg viewBox="0 0 14 14" fill="none"><polyline points="9,2 4,7 9,12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="slide-btn slide-btn--next" aria-label="Next image">
+              <svg viewBox="0 0 14 14" fill="none"><polyline points="5,2 10,7 5,12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="slide-dots">
+              <button class="slide-dot active" aria-label="Image 1"></button>
+              <button class="slide-dot" aria-label="Image 2"></button>
+              <button class="slide-dot" aria-label="Image 3"></button>
+              <button class="slide-dot" aria-label="Image 4"></button>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-role">LP Investor · Lone Star Capital</div>
+            <div class="portfolio-name">Grand Riviera</div>
+            <div class="portfolio-location">Irving (Dallas), Texas</div>
+            <p class="portfolio-desc">A 206-unit, 1972-built apartment complex in the Irving submarket of Dallas-Fort Worth.</p>
+            <span class="gold-rule"></span>
+            <div class="portfolio-stats-row">
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">206</div>
+                <div class="portfolio-stat-lbl">Units</div>
+              </div>
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">2024</div>
+                <div class="portfolio-stat-lbl">Acquired</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Azur Apartments -->
+        <div class="portfolio-card fade-up fade-up-d2">
+          <div class="slideshow-wrap" data-slideshow>
+            <span class="prop-badge prop-badge--subscribed">Fully Subscribed</span>
+            <div class="slideshow-slides">
+              <img class="slideshow-slide" src="Azur2.webp" alt="Azur Apartments" loading="lazy">
+              <img class="slideshow-slide" src="azur-1.jpg" alt="Azur Apartments" loading="lazy">
+              <img class="slideshow-slide" src="azur3.webp" alt="Azur Apartments" loading="lazy">
+              <img class="slideshow-slide" src="azurentry-1.jpg" alt="Azur Apartments" loading="lazy">
+              <img class="slideshow-slide" src="azurpool.jpg" alt="Azur Apartments" loading="lazy">
+            </div>
+            <button class="slide-btn slide-btn--prev" aria-label="Previous image">
+              <svg viewBox="0 0 14 14" fill="none"><polyline points="9,2 4,7 9,12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="slide-btn slide-btn--next" aria-label="Next image">
+              <svg viewBox="0 0 14 14" fill="none"><polyline points="5,2 10,7 5,12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="slide-dots">
+              <button class="slide-dot active" aria-label="Image 1"></button>
+              <button class="slide-dot" aria-label="Image 2"></button>
+              <button class="slide-dot" aria-label="Image 3"></button>
+              <button class="slide-dot" aria-label="Image 4"></button>
+              <button class="slide-dot" aria-label="Image 5"></button>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-role">LP Investor</div>
+            <div class="portfolio-name">Azur Apartments</div>
+            <div class="portfolio-location">Waco, Texas</div>
+            <p class="portfolio-desc">A 208-unit, 1985-built apartment complex in the Waco, Texas market.</p>
+            <span class="gold-rule"></span>
+            <div class="portfolio-stats-row">
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">208</div>
+                <div class="portfolio-stat-lbl">Units</div>
+              </div>
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">2025</div>
+                <div class="portfolio-stat-lbl">Acquired</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preserve at Copper Springs -->
+        <div class="portfolio-card fade-up fade-up-d3">
+          <div class="slideshow-wrap" data-slideshow>
+            <span class="prop-badge prop-badge--subscribed">Fully Subscribed</span>
+            <div class="slideshow-slides">
+              <img class="slideshow-slide" src="Preserve1.png" alt="Preserve at Copper Springs" loading="lazy">
+              <img class="slideshow-slide" src="Preserve2.png" alt="Preserve at Copper Springs" loading="lazy">
+              <img class="slideshow-slide" src="Preserve3.png" alt="Preserve at Copper Springs" loading="lazy">
+            </div>
+            <button class="slide-btn slide-btn--prev" aria-label="Previous image">
+              <svg viewBox="0 0 14 14" fill="none"><polyline points="9,2 4,7 9,12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="slide-btn slide-btn--next" aria-label="Next image">
+              <svg viewBox="0 0 14 14" fill="none"><polyline points="5,2 10,7 5,12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="slide-dots">
+              <button class="slide-dot active" aria-label="Image 1"></button>
+              <button class="slide-dot" aria-label="Image 2"></button>
+              <button class="slide-dot" aria-label="Image 3"></button>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-role">LP Investor · LSCRE PCS Holdings</div>
+            <div class="portfolio-name">Preserve at Copper Springs</div>
+            <div class="portfolio-location">Houston, Texas</div>
+            <p class="portfolio-desc">A 376-unit multifamily community in the Houston, Texas market. Acquired through LSCRE PCS Holdings LLC.</p>
+            <span class="gold-rule"></span>
+            <div class="portfolio-stats-row">
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">376</div>
+                <div class="portfolio-stat-lbl">Units</div>
+              </div>
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">2025</div>
+                <div class="portfolio-stat-lbl">Acquired</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Row 2: Directly owned (2 columns, centered) -->
+      <div class="portfolio-grid portfolio-grid--2col">
+
+        <!-- Bethlehem 3-Unit -->
+        <div class="portfolio-card fade-up fade-up-d1">
+          <div class="slideshow-wrap">
+            <span class="prop-badge prop-badge--owned">Owned</span>
+            <div class="slideshow-slides">
+              <img class="slideshow-slide" src="3unit730CenterSt-2.jpg" alt="3-Unit Multifamily Bethlehem" loading="lazy">
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-role">Direct Owner</div>
+            <div class="portfolio-name">3-Unit Multifamily</div>
+            <div class="portfolio-location">Bethlehem, Pennsylvania</div>
+            <p class="portfolio-desc">Located steps from Main Street Bethlehem. Successfully executed one cash-out refinance. Held long term.</p>
+            <span class="gold-rule"></span>
+            <div class="portfolio-stats-row">
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">3</div>
+                <div class="portfolio-stat-lbl">Units</div>
+              </div>
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">2017</div>
+                <div class="portfolio-stat-lbl">Acquired</div>
+              </div>
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">~$550K</div>
+                <div class="portfolio-stat-lbl">Est. Value</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bethlehem SFR -->
+        <div class="portfolio-card fade-up fade-up-d2">
+          <div class="slideshow-wrap">
+            <span class="prop-badge prop-badge--owned">Owned</span>
+            <div class="slideshow-slides">
+              <img class="slideshow-slide" src="EttweinSt.jpg" alt="Single Family Rental Bethlehem" loading="lazy">
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-role">Direct Owner</div>
+            <div class="portfolio-name">Single Family Rental</div>
+            <div class="portfolio-location">Bethlehem, Pennsylvania</div>
+            <p class="portfolio-desc">Acquired through foreclosure. Executed full BRRRR strategy — renovated, cash-out refinanced, held long term.</p>
+            <span class="gold-rule"></span>
+            <div class="portfolio-stats-row">
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">1</div>
+                <div class="portfolio-stat-lbl">Unit</div>
+              </div>
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">2016</div>
+                <div class="portfolio-stat-lbl">Acquired</div>
+              </div>
+              <div class="portfolio-stat-item">
+                <div class="portfolio-stat-val">~$310K</div>
+                <div class="portfolio-stat-lbl">Est. Value</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
   <section id="team">
     <div class="container">
       <div class="team-header">
@@ -1192,14 +449,10 @@
         <h2 class="fade-up">Built by Operators.<br />Run by Investors.</h2>
       </div>
       <div class="team-grid">
-
         <div class="team-card fade-up fade-up-d1">
           <div class="team-photo-wrap">
             <div class="team-photo">
-              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="18" cy="13" r="6" stroke="currentColor" stroke-width="1.2"/>
-                <path d="M4 34 C4 25 32 25 32 34" stroke="currentColor" stroke-width="1.2" fill="none"/>
-              </svg>
+              <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="13" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4 34 C4 25 32 25 32 34" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
             </div>
           </div>
           <div class="team-name">Bryan Morris</div>
@@ -1207,14 +460,10 @@
           <div class="team-divider"></div>
           <p class="team-bio">Bryan brings a decade of institutional sales experience and real estate investment expertise spanning single-family, multifamily, and private credit. He began building his portfolio in 2016 using the BRRRR strategy and has since expanded into LP syndications and private credit fund management.</p>
         </div>
-
         <div class="team-card fade-up fade-up-d2">
           <div class="team-photo-wrap">
             <div class="team-photo">
-              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="18" cy="13" r="6" stroke="currentColor" stroke-width="1.2"/>
-                <path d="M4 34 C4 25 32 25 32 34" stroke="currentColor" stroke-width="1.2" fill="none"/>
-              </svg>
+              <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="13" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M4 34 C4 25 32 25 32 34" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
             </div>
           </div>
           <div class="team-name">Chris Ward</div>
@@ -1222,14 +471,11 @@
           <div class="team-divider"></div>
           <p class="team-bio">Chris brings deep operational and strategic expertise to Seven Peak's investment process, co-leading deal sourcing, capital formation, and investor relations. His background spans institutional operations, business development, and real estate capital markets.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       PODCAST / INSIGHTS
-  ═══════════════════════════════════════════════════ -->
+  <!-- PODCAST -->
   <section id="podcast">
     <div class="container">
       <div class="podcast-inner">
@@ -1241,7 +487,7 @@
           <a href="#" class="btn btn--outline" style="font-size:12px;">Listen Now</a>
         </div>
         <div class="podcast-right fade-up fade-up-d1">
-          <p style="font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-light); font-weight:500; margin-bottom:10px;">Available on</p>
+          <p style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);font-weight:500;margin-bottom:10px;">Available on</p>
           <div class="podcast-platforms">
             <span class="platform-chip">Spotify</span>
             <span class="platform-chip">Apple Podcasts</span>
@@ -1252,13 +498,10 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       CONTACT
-  ═══════════════════════════════════════════════════ -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <div class="contact-grid">
-
         <div class="contact-left">
           <span class="label fade-up">Get in Touch</span>
           <span class="gold-rule fade-up"></span>
@@ -1266,34 +509,23 @@
           <p class="fade-up fade-up-d1">We work exclusively with accredited investors. If you're evaluating a private credit or equity allocation, we'd welcome the conversation.</p>
           <div class="contact-info fade-up fade-up-d2">
             <div class="contact-info-row">
-              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0.5" y="2.5" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1"/>
-                <polyline points="0.5,3 7.5,9 14.5,3" stroke="currentColor" stroke-width="1" fill="none"/>
-              </svg>
+              <svg viewBox="0 0 15 15" fill="none"><rect x="0.5" y="2.5" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1"/><polyline points="0.5,3 7.5,9 14.5,3" stroke="currentColor" stroke-width="1" fill="none"/></svg>
               <span>investors@sevenpeakcapital.com</span>
             </div>
             <div class="contact-info-row">
-              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.5 1C5.0 1 3 3.0 3 5.5C3 8.5 7.5 14 7.5 14C7.5 14 12 8.5 12 5.5C12 3.0 10.0 1 7.5 1Z" stroke="currentColor" stroke-width="1" fill="none"/>
-                <circle cx="7.5" cy="5.5" r="1.5" stroke="currentColor" stroke-width="1" fill="none"/>
-              </svg>
+              <svg viewBox="0 0 15 15" fill="none"><path d="M7.5 1C5.0 1 3 3.0 3 5.5C3 8.5 7.5 14 7.5 14C7.5 14 12 8.5 12 5.5C12 3.0 10.0 1 7.5 1Z" stroke="currentColor" stroke-width="1" fill="none"/><circle cx="7.5" cy="5.5" r="1.5" stroke="currentColor" stroke-width="1" fill="none"/></svg>
               <span>United States — Accredited Investors Only</span>
             </div>
             <div class="contact-info-row">
-              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1"/>
-                <polyline points="7.5,4 7.5,8 10,9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" fill="none"/>
-              </svg>
+              <svg viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1"/><polyline points="7.5,4 7.5,8 10,9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" fill="none"/></svg>
               <span>Typical response within 1 business day</span>
             </div>
           </div>
         </div>
-
         <div class="fade-up fade-up-d1">
           <form name="investor-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
             <input type="hidden" name="form-name" value="investor-inquiry" />
             <p style="display:none;"><label>Do not fill: <input name="bot-field" /></label></p>
-
             <div class="form-row">
               <div class="form-group">
                 <label for="fullname">Full Name *</label>
@@ -1324,42 +556,34 @@
               <textarea id="message" name="message" placeholder="Tell us about your investment goals or questions about the fund..."></textarea>
             </div>
             <button type="submit" class="btn btn--dark form-submit">Request a Call</button>
-            <p class="form-legal">
-              Seven Peak Capital does not provide investment advice. All investments involve risk. This is not an offer to sell securities. By submitting this form, you agree to be contacted by our team regarding your inquiry.
-            </p>
+            <p class="form-legal">Seven Peak Capital does not provide investment advice. All investments involve risk. This is not an offer to sell securities. By submitting this form, you agree to be contacted by our team regarding your inquiry.</p>
           </form>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════════════ -->
+  <!-- FOOTER -->
   <footer id="footer">
     <div class="container">
       <div class="footer-top">
-
         <div class="footer-brand">
           <div class="footer-logo-wrap">
-            <img src="Seven Peak Capital Logo-02 (3).png" alt="Seven Peak Capital" style="height: 36px; width: auto; display: block;">
+            <img src="Seven Peak Capital Logo-02 (3).png" alt="Seven Peak Capital" style="height:36px;width:auto;display:block;">
           </div>
           <p class="footer-tagline">Disciplined capital allocation in institutional real estate and private credit — built for accredited investors who demand more.</p>
         </div>
-
         <div>
           <div class="footer-col-title">Navigation</div>
           <nav class="footer-nav-links">
-            <a href="#about">About</a>
-            <a href="#strategy">Strategy</a>
-            <a href="#fund">Income Fund I</a>
-            <a href="#team">Principals</a>
-            <a href="#podcast">Insights</a>
-            <a href="#contact">Contact</a>
+            <a href="about.html">About</a>
+            <a href="strategy.html">Strategy</a>
+            <a href="income-fund.html">Income Fund I</a>
+            <a href="index.html#team">Principals</a>
+            <a href="#">Insights</a>
+            <a href="contact.html">Contact</a>
           </nav>
         </div>
-
         <div>
           <div class="footer-col-title">Legal</div>
           <nav class="footer-nav-links">
@@ -1369,9 +593,7 @@
             <a href="#">Form ADV</a>
           </nav>
         </div>
-
       </div>
-
       <div class="footer-bottom">
         <p class="footer-copyright">© 2025 Seven Peak Capital LLC. All rights reserved.</p>
         <div class="footer-legal-links">
@@ -1379,64 +601,52 @@
           <a href="#">Terms</a>
           <a href="#">Disclosures</a>
         </div>
-        <p class="footer-disclaimer">
-          Seven Peak Capital LLC is not a registered investment advisor. Securities offerings are made only to accredited investors pursuant to Rule 506(c) of Regulation D. Past performance is not indicative of future results. All investments involve risk, including the possible loss of principal. This website does not constitute an offer to sell, or a solicitation of an offer to buy, any securities. Any such offer or solicitation will be made only by means of a confidential private placement memorandum and only in jurisdictions where permitted by law.
-        </p>
+        <p class="footer-disclaimer">Seven Peak Capital LLC is not a registered investment advisor. Securities offerings are made only to accredited investors pursuant to Rule 506(c) of Regulation D. Past performance is not indicative of future results. All investments involve risk, including the possible loss of principal. This website does not constitute an offer to sell, or a solicitation of an offer to buy, any securities. Any such offer or solicitation will be made only by means of a confidential private placement memorandum and only in jurisdictions where permitted by law.</p>
       </div>
-
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════════════
-       JAVASCRIPT
-  ═══════════════════════════════════════════════════ -->
   <script>
-    // ── Intersection Observer: fade-up ──────────────
+    // Fade-up observer
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      });
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
-
     document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 
-    // Hero animates immediately on load
+    // Hero animates on load
     window.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('#hero .fade-up').forEach((el, i) => {
         setTimeout(() => el.classList.add('visible'), 120 + i * 130);
       });
     });
 
-    // ── Mobile menu ─────────────────────────────────
-    const hamburger    = document.getElementById('hamburger');
-    const mobileMenu   = document.getElementById('mobileMenu');
-    const mobileClose  = document.getElementById('mobileClose');
-
-    function openMobile() {
-      mobileMenu.classList.add('open');
-      mobileMenu.setAttribute('aria-hidden', 'false');
-      hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMobile() {
-      mobileMenu.classList.remove('open');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    function openMobile() { mobileMenu.classList.add('open'); mobileMenu.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+    function closeMobile() { mobileMenu.classList.remove('open'); mobileMenu.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
     hamburger.addEventListener('click', openMobile);
     mobileClose.addEventListener('click', closeMobile);
-    document.querySelectorAll('.mobile-link, .nav-mobile .btn').forEach(el => {
-      el.addEventListener('click', closeMobile);
-    });
+    document.querySelectorAll('.mobile-link, .nav-mobile .btn').forEach(el => el.addEventListener('click', closeMobile));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
 
-    // Close mobile menu on Escape
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeMobile();
+    // Slideshows
+    document.querySelectorAll('[data-slideshow]').forEach(wrap => {
+      const slides = wrap.querySelector('.slideshow-slides');
+      const imgs = slides.children;
+      const dots = wrap.querySelectorAll('.slide-dot');
+      let current = 0;
+      const total = imgs.length;
+      if (total <= 1) { wrap.querySelector('.slide-btn--prev').style.display='none'; wrap.querySelector('.slide-btn--next').style.display='none'; return; }
+      function goTo(n) {
+        current = ((n % total) + total) % total;
+        slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+      wrap.querySelector('.slide-btn--prev').addEventListener('click', () => goTo(current - 1));
+      wrap.querySelector('.slide-btn--next').addEventListener('click', () => goTo(current + 1));
+      dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
     });
   </script>
 
