@@ -25,6 +25,7 @@
           <li><a href="strategy.html">Strategy</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="income-fund.html">Income Fund I</a></li>
+          <li><a href="resources.html">Resources</a></li>
           <li><a href="podcast.html">Podcast</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
@@ -42,6 +43,7 @@
     <a href="strategy.html" class="mobile-link">Strategy</a>
     <a href="portfolio.html" class="mobile-link">Portfolio</a>
     <a href="income-fund.html" class="mobile-link">Income Fund I</a>
+    <a href="resources.html" class="mobile-link">Resources</a>
     <a href="podcast.html" class="mobile-link">Podcast</a>
     <a href="contact.html" class="mobile-link">Contact</a>
     <a href="https://sevenpeakcapital.cashflowportal.com/app" class="btn btn--dark" style="margin-top:8px;font-size:12px;" target="_blank" rel="noopener noreferrer">Investor Login</a>
@@ -125,23 +127,24 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="interest">Area of Interest</label>
-              <select id="interest" name="interest">
+              <label for="interest">Investment Interest *</label>
+              <select id="interest" name="interest" required>
                 <option value="" disabled selected>Select one</option>
-                <option value="income-fund">Income Fund I (Private Credit)</option>
-                <option value="equity">Multifamily Equity Co-Investment</option>
-                <option value="both">Both Strategies</option>
-                <option value="learn">Just Learning More</option>
+                <option value="private-credit">Private Credit / Income Fund I</option>
+                <option value="multifamily">Multifamily Real Estate</option>
+                <option value="both">Both / General Inquiry</option>
+                <option value="education">Investor Education</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="investment-range">Investment Range (Optional)</label>
+              <label for="investment-range">Estimated Investment Range</label>
               <select id="investment-range" name="investment-range">
                 <option value="" disabled selected>Select range</option>
+                <option value="under-50k">Under $50,000</option>
                 <option value="50-100k">$50,000 – $100,000</option>
                 <option value="100-250k">$100,000 – $250,000</option>
-                <option value="250-500k">$250,000 – $500,000</option>
-                <option value="500k+">$500,000+</option>
+                <option value="250k+">$250,000+</option>
+                <option value="not-sure">Not sure yet</option>
               </select>
             </div>
             <div class="form-group">
@@ -157,12 +160,25 @@
     </div>
   </section>
 
+  <!-- CALENDLY SECTION -->
+  <section class="calendly-section">
+    <div class="container">
+      <div class="calendly-inner">
+        <span class="label fade-up">SCHEDULE A CALL</span>
+        <span class="gold-rule fade-up"></span>
+        <h3 class="calendly-h3 fade-up">Book a 1-on-1 Investor Call</h3>
+        <p class="calendly-body fade-up fade-up-d1">Prefer to talk directly? Book a 30-minute call with Bryan or Chris to discuss your investment goals.</p>
+        <a href="https://calendly.com/sevenpeakcapital" class="btn btn--dark fade-up fade-up-d2" target="_blank" rel="noopener noreferrer" style="font-size:13px;padding:15px 32px;margin-top:8px;">Book a Call</a>
+      </div>
+    </div>
+  </section>
+
   <!-- LEGAL DISCLAIMER -->
   <section style="background:var(--bg);padding:60px 0;border-top:1px solid var(--border);">
     <div class="container">
       <div style="max-width:760px;">
         <span class="label" style="margin-bottom:12px;">Disclosures</span>
-        <p style="font-size:12px;color:var(--text-light);line-height:1.8;">Seven Peak Capital LLC is not a registered investment advisor or broker-dealer. Nothing on this website constitutes investment advice, a recommendation, or an offer or solicitation to buy or sell any security. Any offer to invest in Seven Peak Income Fund I is made exclusively through the confidential Private Placement Memorandum and is available only to persons who qualify as accredited investors under Rule 501 of Regulation D. Investments in private funds involve significant risk, including the risk of total loss of capital. Past performance is not indicative of future results. Prospective investors should carefully review all offering documents and consult with their own legal, tax, and financial advisors before making any investment decision.</p>
+        <p style="font-size:12px;color:var(--text-light);line-height:1.8;">The information provided on this website is for informational and educational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security. Any investment opportunities referenced are available only through official offering documents and in accordance with applicable securities laws. Investments involve risk, including the possible loss of capital. Past performance does not guarantee future results. Seven Peak Capital LLC is not a registered investment advisor. Securities offerings are made only to accredited investors pursuant to Rule 506(c) of Regulation D.</p>
       </div>
     </div>
   </section>
@@ -184,6 +200,7 @@
             <a href="strategy.html">Strategy</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="income-fund.html">Income Fund I</a>
+            <a href="resources.html">Resources</a>
             <a href="index.html#team">Principals</a>
             <a href="podcast.html">Podcast</a>
             <a href="contact.html">Contact</a>
@@ -206,7 +223,7 @@
           <a href="#">Terms</a>
           <a href="#">Disclosures</a>
         </div>
-        <p class="footer-disclaimer">Seven Peak Capital LLC is not a registered investment advisor. Securities offerings are made only to accredited investors pursuant to Rule 506(c) of Regulation D. Past performance is not indicative of future results. All investments involve risk, including the possible loss of principal. This website does not constitute an offer to sell, or a solicitation of an offer to buy, any securities. Any such offer or solicitation will be made only by means of a confidential private placement memorandum and only in jurisdictions where permitted by law.</p>
+        <p class="footer-disclaimer">The information provided on this website is for informational and educational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security. Any investment opportunities referenced are available only through official offering documents and in accordance with applicable securities laws. Investments involve risk, including the possible loss of capital. Past performance does not guarantee future results. Seven Peak Capital LLC is not a registered investment advisor. Securities offerings are made only to accredited investors pursuant to Rule 506(c) of Regulation D.</p>
       </div>
     </div>
   </footer>
