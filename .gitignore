@@ -10,3 +10,6 @@
 # Local test
 *.log
 /tmp/
+PreserveDrone.mp4
+*.mp4
+!video/hero-loop.mp4
