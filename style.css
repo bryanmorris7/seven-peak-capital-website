@@ -364,9 +364,12 @@ em { font-style: italic; color: var(--gold-light); }
 /* Once the video is playing, fade the still out so it doesn't bleed through */
 .hero-media.video-playing .hero-media-still { opacity: 0; }
 
-/* Mobile — skip the video entirely, still image handles it */
+/* Mobile — keep video but ease the visual load */
 @media (max-width: 900px) {
-  .hero-media-video { display: none; }
+  .hero-media-still,
+  .hero-media-video {
+    transform: scale(1.02);
+  }
 }
 
 /* Editorial overlay — vertical gradient + vignette for text legibility */
