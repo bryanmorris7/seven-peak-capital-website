@@ -8,8 +8,30 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0%25' stop-color='%23896101'/%3E%3Cstop offset='100%25' stop-color='%23C09A2B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='4,28 14,6 24,28' fill='url(%23g)'/%3E%3Cpolyline points='16,28 24,10 32,28' fill='none' stroke='url(%23g)' stroke-width='2.2' stroke-linejoin='miter'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <meta property="og:site_name" content="Seven Peak Capital" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sevenpeakcapital.com/" />
+  <meta property="og:title" content="Seven Peak Capital | Private Equity &amp; Private Credit" />
+  <meta property="og:description" content="Seven Peak Capital — Institutional-quality multifamily real estate and private credit for accredited investors." />
+  <meta property="og:image" content="https://sevenpeakcapital.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Seven Peak Capital | Private Equity &amp; Private Credit" />
+  <meta name="twitter:description" content="Seven Peak Capital — Institutional-quality multifamily real estate and private credit for accredited investors." />
+  <meta name="twitter:image" content="https://sevenpeakcapital.com/og-image.jpg" />
+  <meta name="theme-color" content="#07090E" />
+  <link rel="canonical" href="https://sevenpeakcapital.com/" />
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID from https://analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
 <body>
 
@@ -18,9 +40,10 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo-link" aria-label="Seven Peak Capital — Home">
-          <img src="Seven Peak Capital Logo-01 (9).png" alt="Seven Peak Capital" style="height:48px;width:auto;display:block;">
+          <img src="Seven Peak Capital Logo-02 (3).png" alt="Seven Peak Capital" style="height:96px;width:auto;display:block;">
         </a>
         <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="strategy.html">Strategy</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
@@ -39,6 +62,7 @@
 
   <nav class="nav-mobile" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
     <button class="nav-mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="index.html" class="mobile-link">Home</a>
     <a href="about.html" class="mobile-link">About</a>
     <a href="strategy.html" class="mobile-link">Strategy</a>
     <a href="portfolio.html" class="mobile-link">Portfolio</a>
@@ -51,11 +75,19 @@
 
   <!-- HERO -->
   <section id="hero">
+    <!-- Background media: drone footage of Preserve at Copper Springs. -->
+    <div class="hero-media" aria-hidden="true">
+      <img src="video/hero-poster.jpg" alt="" class="hero-media-still">
+      <video autoplay muted loop playsinline preload="metadata" class="hero-media-video" poster="video/hero-poster.jpg">
+        <source src="video/hero-loop.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-eyebrow">
         <span class="label">Private Real Estate · Private Credit</span>
       </div>
-      <h1 class="hero-h1 fade-up">Build Passive Income<br>Beyond Your W-2</h1>
+      <h1 class="hero-h1 fade-up">Build <em>passive income</em><br>beyond your W-2</h1>
       <div class="hero-rule fade-up fade-up-d1"></div>
       <p class="hero-sub fade-up fade-up-d1">Seven Peak Capital helps professionals invest in private real estate and private credit opportunities designed to generate income, preserve capital, and build long-term wealth.</p>
       <div class="hero-ctas fade-up fade-up-d2">
@@ -76,10 +108,10 @@
         <div class="wwd-item fade-up">
           <div class="wwd-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="14" width="10" height="16" stroke="#896101" stroke-width="1.4" fill="none"/>
-              <rect x="12" y="8" width="10" height="22" stroke="#896101" stroke-width="1.4" fill="none"/>
-              <rect x="22" y="18" width="8" height="12" stroke="#896101" stroke-width="1.4" fill="none"/>
-              <line x1="1" y1="30" x2="31" y2="30" stroke="#896101" stroke-width="1.4"/>
+              <rect x="2" y="14" width="10" height="16" stroke="#C09A2B" stroke-width="1.4" fill="none"/>
+              <rect x="12" y="8" width="10" height="22" stroke="#C09A2B" stroke-width="1.4" fill="none"/>
+              <rect x="22" y="18" width="8" height="12" stroke="#C09A2B" stroke-width="1.4" fill="none"/>
+              <line x1="1" y1="30" x2="31" y2="30" stroke="#C09A2B" stroke-width="1.4"/>
             </svg>
           </div>
           <h3>Multifamily Real Estate</h3>
@@ -88,8 +120,8 @@
         <div class="wwd-item fade-up fade-up-d1">
           <div class="wwd-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 2 L28 8 L28 16 C28 23 22 28.5 16 30 C10 28.5 4 23 4 16 L4 8 Z" stroke="#896101" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
-              <path d="M11 16 L14.5 19.5 L21 13" stroke="#896101" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 2 L28 8 L28 16 C28 23 22 28.5 16 30 C10 28.5 4 23 4 16 L4 8 Z" stroke="#C09A2B" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+              <path d="M11 16 L14.5 19.5 L21 13" stroke="#C09A2B" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <h3>Private Credit</h3>
@@ -98,8 +130,8 @@
         <div class="wwd-item fade-up fade-up-d2">
           <div class="wwd-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="2,30 13,6 24,30" stroke="#896101" stroke-width="1.4" fill="none" stroke-linejoin="miter"/>
-              <polyline points="16,30 24,10 31,30" stroke="#896101" stroke-width="1.4" fill="none" stroke-linejoin="miter"/>
+              <polygon points="2,30 13,6 24,30" stroke="#C09A2B" stroke-width="1.4" fill="none" stroke-linejoin="miter"/>
+              <polyline points="16,30 24,10 31,30" stroke="#C09A2B" stroke-width="1.4" fill="none" stroke-linejoin="miter"/>
             </svg>
           </div>
           <h3>Investor Education</h3>
@@ -128,29 +160,6 @@
     </div>
   </section>
 
-  <!-- CREDIBILITY BAR -->
-  <section id="credibility">
-    <div class="container">
-      <div class="cred-inner">
-        <div class="cred-item fade-up">
-          <div class="cred-number">$50K</div>
-          <div class="cred-label">Minimum Investment</div>
-        </div>
-        <div class="cred-item fade-up fade-up-d1">
-          <div class="cred-number">10–12%</div>
-          <div class="cred-label">Preferred Return</div>
-        </div>
-        <div class="cred-item fade-up fade-up-d2">
-          <div class="cred-number">Quarterly</div>
-          <div class="cred-label">Distributions</div>
-        </div>
-        <div class="cred-item fade-up fade-up-d3">
-          <div class="cred-number">506(c)</div>
-          <div class="cred-label">Offering</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- WHY SEVEN PEAK -->
   <section id="about">
@@ -302,7 +311,6 @@
             </div>
           </div>
           <div class="portfolio-body">
-            <div class="portfolio-role">Lone Star Capital</div>
             <div class="portfolio-name">Grand Riviera</div>
             <div class="portfolio-location">Irving (Dallas), Texas</div>
             <p class="portfolio-desc">A 206-unit, 1972-built apartment complex in the Irving submarket of Dallas-Fort Worth.</p>
@@ -385,10 +393,9 @@
             </div>
           </div>
           <div class="portfolio-body">
-            <div class="portfolio-role">LSCRE PCS Holdings</div>
             <div class="portfolio-name">Preserve at Copper Springs</div>
             <div class="portfolio-location">Houston, Texas</div>
-            <p class="portfolio-desc">A 376-unit multifamily community in the Houston, Texas market. Acquired through LSCRE PCS Holdings LLC.</p>
+            <p class="portfolio-desc">A 376-unit multifamily community in the Houston, Texas market.</p>
             <span class="gold-rule"></span>
             <div class="portfolio-stats-row">
               <div class="portfolio-stat-item">
@@ -396,7 +403,7 @@
                 <div class="portfolio-stat-lbl">Units</div>
               </div>
               <div class="portfolio-stat-item">
-                <div class="portfolio-stat-val">2025</div>
+                <div class="portfolio-stat-val">2026</div>
                 <div class="portfolio-stat-lbl">Acquired</div>
               </div>
             </div>
@@ -524,17 +531,27 @@
           <div class="team-title">Co-Founder &amp; Managing Partner</div>
           <div class="team-divider"></div>
           <p class="team-bio">Bryan Morris is a real estate investor and enterprise sales professional with over a decade of experience. He began investing in 2016 using the BRRRR strategy in Bethlehem, PA and has since expanded into multifamily syndications and private credit. Bryan co-founded Seven Peak Capital to help fellow professionals build passive income alongside experienced operators.</p>
+          <div class="team-social">
+            <a href="https://www.linkedin.com/in/bryanmorris7/" target="_blank" rel="noopener noreferrer" aria-label="Bryan Morris on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.339 18.337V9.751H5.667v8.586h2.672zM7.003 8.575a1.548 1.548 0 1 0 0-3.096 1.548 1.548 0 0 0 0 3.096zm11.336 9.762v-4.712c0-2.34-.507-4.15-3.252-4.15-1.316 0-2.2.724-2.561 1.41h-.037V9.751h-2.568v8.586h2.672v-4.245c0-1.121.213-2.206 1.602-2.206 1.37 0 1.387 1.28 1.387 2.278v4.173h2.757z"/></svg>
+            </a>
+          </div>
         </div>
         <div class="team-card fade-up fade-up-d2">
           <div class="team-photo-wrap">
             <div class="team-photo">
-              <img src="Chris_Headshot_new.png" alt="Chris Ward" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;">
+              <img src="ChrisHeadshotNew.png" alt="Chris Ward" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;">
             </div>
           </div>
           <div class="team-name">Chris Ward</div>
           <div class="team-title">Co-Founder &amp; Managing Partner</div>
           <div class="team-divider"></div>
           <p class="team-bio">Chris Ward is a real estate investor and entrepreneur focused on deal sourcing, underwriting, and operator relationships. At Seven Peak Capital, Chris leads the evaluation of investment opportunities and partnership development. He shares the firm's commitment to disciplined investing and long-term value creation.</p>
+          <div class="team-social">
+            <a href="https://www.linkedin.com/in/thechrisward/" target="_blank" rel="noopener noreferrer" aria-label="Chris Ward on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.339 18.337V9.751H5.667v8.586h2.672zM7.003 8.575a1.548 1.548 0 1 0 0-3.096 1.548 1.548 0 0 0 0 3.096zm11.336 9.762v-4.712c0-2.34-.507-4.15-3.252-4.15-1.316 0-2.2.724-2.561 1.41h-.037V9.751h-2.568v8.586h2.672v-4.245c0-1.121.213-2.206 1.602-2.206 1.37 0 1.387 1.28 1.387 2.278v4.173h2.757z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -548,7 +565,7 @@
           <span class="label">Insights</span>
           <span class="gold-rule"></span>
           <h2>Peak Profits Podcast</h2>
-          <p>Straight talk on real estate investing, private credit, and building wealth outside Wall Street. New episodes every week — no fluff, no filler.</p>
+          <p>The art of passive investing through real estate. No fluff, no filler — real conversations about multifamily, private credit, and building wealth outside Wall Street.</p>
           <a href="podcast.html" class="btn btn--outline" style="font-size:12px;">Listen Now</a>
         </div>
         <div class="podcast-right fade-up fade-up-d1">
@@ -575,7 +592,7 @@
           <div class="contact-info fade-up fade-up-d2">
             <div class="contact-info-row">
               <svg viewBox="0 0 15 15" fill="none"><rect x="0.5" y="2.5" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1"/><polyline points="0.5,3 7.5,9 14.5,3" stroke="currentColor" stroke-width="1" fill="none"/></svg>
-              <span>investors@sevenpeakcapital.com</span>
+              <span>info@sevenpeakcapital.com</span>
             </div>
             <div class="contact-info-row">
               <svg viewBox="0 0 15 15" fill="none"><path d="M7.5 1C5.0 1 3 3.0 3 5.5C3 8.5 7.5 14 7.5 14C7.5 14 12 8.5 12 5.5C12 3.0 10.0 1 7.5 1Z" stroke="currentColor" stroke-width="1" fill="none"/><circle cx="7.5" cy="5.5" r="1.5" stroke="currentColor" stroke-width="1" fill="none"/></svg>
@@ -588,9 +605,8 @@
           </div>
         </div>
         <div class="fade-up fade-up-d1">
-          <form name="investor-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-            <input type="hidden" name="form-name" value="investor-inquiry" />
-            <p style="display:none;"><label>Do not fill: <input name="bot-field" /></label></p>
+          <form name="investor-inquiry" method="POST" class="contact-form" novalidate>
+            <p style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true"><label>Do not fill: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
             <div class="form-row">
               <div class="form-group">
                 <label for="fullname">Full Name *</label>
@@ -630,16 +646,12 @@
 
   <!-- EMAIL CAPTURE / INVESTOR LIST -->
   <section id="investor-list">
-    <!-- TODO: Replace Netlify form action with GHL webhook URL
-         when ready to connect GoHighLevel CRM -->
-    <!-- GHL Webhook endpoint goes here: data-action="" -->
     <div class="container">
       <span class="il-label fade-up">INVESTOR LIST</span>
       <h2 class="fade-up fade-up-d1">Join the Seven Peak Capital Investor List</h2>
       <p class="il-sub fade-up fade-up-d2">Receive updates on investment opportunities, educational resources, and market insights. Built for accredited investors serious about passive income.</p>
-      <form name="investor-list" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="investor-list" />
-        <p style="display:none;"><label>Do not fill: <input name="bot-field" /></label></p>
+      <form name="investor-list" method="POST" novalidate>
+        <p style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true"><label>Do not fill: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
         <div class="il-form fade-up fade-up-d3">
           <input type="email" name="email" placeholder="Enter your email address" required />
           <button type="submit">Join the List</button>
@@ -695,11 +707,11 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2025 Seven Peak Capital LLC. All rights reserved.</p>
+        <p class="footer-copyright">© 2026 Seven Peak Capital LLC. All rights reserved.</p>
         <div class="footer-legal-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
-          <a href="#">Disclosures</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+          <a href="disclosures.html">Disclosures</a>
         </div>
         <p class="footer-disclaimer">The information provided on this website is for informational and educational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security. Any investment opportunities referenced are available only through official offering documents and in accordance with applicable securities laws. Investments involve risk, including the possible loss of capital. Past performance does not guarantee future results. Seven Peak Capital LLC is not a registered investment advisor. Securities offerings are made only to accredited investors pursuant to Rule 506(c) of Regulation D.</p>
       </div>
@@ -707,6 +719,25 @@
   </footer>
 
   <script>
+    // Hero video — fade in once it's actually playing, and hide the still image behind it
+    const heroVid = document.querySelector('.hero-media-video');
+    if (heroVid) {
+      heroVid.addEventListener('playing', () => {
+        heroVid.classList.add('ready');
+        const wrap = heroVid.closest('.hero-media');
+        if (wrap) wrap.classList.add('video-playing');
+      }, { once: true });
+    }
+
+    // Nav scroll state
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => {
+      if (window.scrollY > 20) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
     // Fade-up observer
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
@@ -749,6 +780,7 @@
       dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
     });
   </script>
+  <script src="forms.js"></script>
 
 </body>
 </html>

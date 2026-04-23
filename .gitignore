@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor artifacts
+*.swp
+.idea/
+.vscode/
+
+# Local test
+*.log
+/tmp/

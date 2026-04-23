@@ -1,0 +1,10 @@
+# robots.txt — Seven Peak Capital
+# https://sevenpeakcapital.com
+
+User-agent: *
+Allow: /
+
+# Exclude technical/build artifacts
+Disallow: /video/*.mp4$
+
+Sitemap: https://sevenpeakcapital.com/sitemap.xml
