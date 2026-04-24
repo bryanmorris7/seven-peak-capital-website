@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/JjqgX84cb8KHmiwwnsn8/webhook-trigger/433f24a3-c5ec-4d2b-bbfb-697e8b60f952';
+  var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/JjqgX84cb8KHmiwwnsn8/webhook-trigger/0da08a5f-ef16-4807-87ec-b352c4d496aa';
 
   function getPageName() {
     var path = window.location.pathname || '';
