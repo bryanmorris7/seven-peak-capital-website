@@ -32,11 +32,11 @@
     msg.setAttribute('role', 'status');
     msg.setAttribute('aria-live', 'polite');
 
-    var base = 'margin-top:20px;padding:16px 20px;font-family:"DM Sans",sans-serif;font-size:14px;letter-spacing:0.02em;line-height:1.55;';
+    var base = 'margin-top:20px;padding:18px 22px;font-family:"Outfit",sans-serif;font-size:14px;letter-spacing:0.01em;line-height:1.55;border-radius:2px;';
     if (type === 'success') {
-      msg.style.cssText = base + 'background:rgba(137,97,1,0.08);border-left:2px solid var(--gold,#896101);color:var(--navy,#0A0F1E);';
+      msg.style.cssText = base + 'background:rgba(192,154,43,0.08);border:1px solid rgba(192,154,43,0.35);border-left:3px solid #C09A2B;color:#F5F0E1;';
     } else {
-      msg.style.cssText = base + 'background:rgba(180,40,40,0.06);border-left:2px solid #b42828;color:#b42828;';
+      msg.style.cssText = base + 'background:rgba(180,40,40,0.10);border:1px solid rgba(220,80,80,0.35);border-left:3px solid #dc5050;color:#ffb8b8;';
     }
     msg.textContent = text;
     form.appendChild(msg);
