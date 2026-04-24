@@ -41,6 +41,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sevenpeakcapital.com/case-study/grand-riviera.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sevenpeakcapital.com/case-study/azur-apartments.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sevenpeakcapital.com/case-study/preserve-at-copper-springs.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://sevenpeakcapital.com/blog/active-vs-passive.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
