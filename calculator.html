@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Investment calculators for accredited investors — model private credit and multifamily equity returns. Cash-on-cash ROI and IRR projections from Seven Peak Capital." />
+  <title>Investment Calculators | Seven Peak Capital</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0%25' stop-color='%23896101'/%3E%3Cstop offset='100%25' stop-color='%23C09A2B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='4,28 14,6 24,28' fill='url(%23g)'/%3E%3Cpolyline points='16,28 24,10 32,28' fill='none' stroke='url(%23g)' stroke-width='2.2' stroke-linejoin='miter'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta property="og:site_name" content="Seven Peak Capital" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sevenpeakcapital.com/calculator.html" />
+  <meta property="og:title" content="Investment Calculators | Seven Peak Capital" />
+  <meta property="og:description" content="Model private credit and multifamily equity returns. Cash-on-cash ROI and IRR projections for accredited investors." />
+  <meta property="og:image" content="https://sevenpeakcapital.com/og-image.jpg" />
+  <meta name="theme-color" content="#07090E" />
+  <link rel="canonical" href="https://sevenpeakcapital.com/calculator.html" />
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-98M8H737E0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-98M8H737E0');
+  </script>
+
+  <style>
+    /* ========== CALCULATOR-SPECIFIC STYLES ========== */
+    .calc-section { background: var(--bg); padding: var(--section-py) 0; }
+    .calc-container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    .calc-eyebrow {
+      font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .calc-rule {
+      display: block; width: 32px; height: 1px;
+      background: var(--gold); margin-bottom: 24px;
+    }
+    .calc-title {
+      font-family: 'Instrument Serif', serif; font-style: italic;
+      font-size: clamp(36px, 5vw, 56px); font-weight: 400;
+      color: var(--text); line-height: 1.1; margin-bottom: 18px;
+    }
+    .calc-sub {
+      font-family: 'Outfit', sans-serif; font-weight: 300;
+      font-size: 16px; line-height: 1.6;
+      color: var(--text-secondary); max-width: 720px; margin-bottom: 48px;
+    }
+
+    /* ========== TAB SWITCHER ========== */
+    .calc-tabs {
+      display: inline-flex; gap: 0;
+      border: 1px solid var(--border); border-radius: 2px;
+      margin-bottom: 40px; background: var(--bg-alt);
+    }
+    .calc-tab {
+      font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 14px 28px; cursor: pointer;
+      background: transparent; border: none; color: var(--text-light);
+      transition: all 0.3s ease; position: relative;
+    }
+    .calc-tab.active { color: var(--text); background: rgba(192,154,43,0.08); }
+    .calc-tab.active::after {
+      content: ''; position: absolute; left: 28px; right: 28px; bottom: 6px;
+      height: 1px; background: var(--gold);
+    }
+    .calc-tab:hover { color: var(--text); }
+
+    /* ========== CALCULATOR PANEL ========== */
+    .calc-panel { display: none; }
+    .calc-panel.active { display: block; animation: fadeUp 0.5s ease; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .calc-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+      align-items: start;
+    }
+    @media (max-width: 860px) { .calc-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ========== INPUT GROUPS ========== */
+    .calc-input-group { margin-bottom: 36px; }
+    .calc-input-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 16px;
+    }
+    .calc-input-label {
+      font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .calc-input-value {
+      font-family: 'Instrument Serif', serif; font-style: italic;
+      font-size: 28px; color: var(--text);
+    }
+
+    /* ========== CUSTOM SLIDER ========== */
+    .calc-slider {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 2px; background: var(--border);
+      outline: none; border-radius: 0;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 18px; height: 18px; background: var(--gold);
+      border-radius: 50%; cursor: pointer;
+      box-shadow: 0 0 0 4px rgba(192,154,43,0.15);
+      transition: box-shadow 0.2s ease;
+    }
+    .calc-slider::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 0 6px rgba(192,154,43,0.25);
+    }
+    .calc-slider::-moz-range-thumb {
+      width: 18px; height: 18px; background: var(--gold);
+      border-radius: 50%; cursor: pointer; border: none;
+      box-shadow: 0 0 0 4px rgba(192,154,43,0.15);
+    }
+    .calc-slider-range {
+      display: flex; justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      color: var(--text-mid); margin-top: 8px; letter-spacing: 0.06em;
+    }
+
+    /* ========== FREQUENCY TOGGLE ========== */
+    .calc-freq-toggle {
+      display: inline-flex; gap: 0;
+      border: 1px solid var(--border); border-radius: 2px;
+      background: var(--bg-alt);
+    }
+    .calc-freq-btn {
+      font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 10px 22px; cursor: pointer;
+      background: transparent; border: none; color: var(--text-light);
+      transition: all 0.3s ease; position: relative;
+    }
+    .calc-freq-btn.active { color: var(--text); background: rgba(192,154,43,0.08); }
+    .calc-freq-btn.active::after {
+      content: ''; position: absolute; left: 22px; right: 22px; bottom: 4px;
+      height: 1px; background: var(--gold);
+    }
+    .calc-freq-btn:hover { color: var(--text); }
+
+    /* ========== OUTPUTS PANEL ========== */
+    .calc-outputs {
+      background: var(--bg-alt); padding: 40px 36px;
+      border-left: 1px solid var(--gold);
+    }
+    .calc-output-label {
+      font-family: 'Outfit', sans-serif; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .calc-output-main {
+      font-family: 'Instrument Serif', serif; font-style: italic;
+      font-size: clamp(48px, 6vw, 68px); line-height: 1;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .calc-output-caption {
+      font-family: 'Outfit', sans-serif; font-weight: 300;
+      font-size: 13px; color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+    .calc-output-divider {
+      height: 1px; background: var(--border); margin: 28px 0;
+    }
+    .calc-stat-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .calc-stat-row:last-child { border-bottom: none; }
+    .calc-stat-label {
+      font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 400;
+      color: var(--text-secondary);
+    }
+    .calc-stat-value {
+      font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ========== DISCLAIMER ========== */
+    .calc-disclaimer {
+      margin-top: 64px; padding: 28px 32px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+    }
+    .calc-disclaimer-title {
+      font-family: 'Outfit', sans-serif; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .calc-disclaimer-text {
+      font-family: 'Outfit', sans-serif; font-weight: 300;
+      font-size: 12px; line-height: 1.65;
+      color: var(--text-mid);
+    }
+
+    /* ========== CTA ========== */
+    .calc-cta {
+      margin-top: 28px; padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+    .calc-cta-text {
+      font-family: 'Outfit', sans-serif; font-weight: 300;
+      font-size: 13px; color: var(--text-secondary);
+      margin-bottom: 18px; line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo-link" aria-label="Seven Peak Capital — Home">
+          <img src="Seven Peak Capital Logo-02 (3).png" alt="Seven Peak Capital" style="height:96px;width:auto;display:block;">
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="strategy.html">Strategy</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="income-fund.html">Income Fund I</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="https://sevenpeakcapital.cashflowportal.com/app" class="nav-cta" target="_blank" rel="noopener noreferrer">Investor Login</a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="nav-mobile" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="nav-mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="about.html" class="mobile-link">About</a>
+    <a href="strategy.html" class="mobile-link">Strategy</a>
+    <a href="portfolio.html" class="mobile-link">Portfolio</a>
+    <a href="income-fund.html" class="mobile-link">Income Fund I</a>
+    <a href="resources.html" class="mobile-link">Resources</a>
+    <a href="podcast.html" class="mobile-link">Podcast</a>
+    <a href="contact.html" class="mobile-link">Contact</a>
+    <a href="https://sevenpeakcapital.cashflowportal.com/app" class="btn btn--dark" style="margin-top:8px;font-size:12px;" target="_blank" rel="noopener noreferrer">Investor Login</a>
+  </nav>
+
+  <!-- CALCULATOR SECTION -->
+  <section class="calc-section" style="padding-top: 160px;">
+    <div class="calc-container">
+
+      <div class="calc-eyebrow">Tools</div>
+      <span class="calc-rule"></span>
+      <h1 class="calc-title">Investment Calculator</h1>
+      <p class="calc-sub">Model hypothetical returns from private credit and multifamily equity investments. Adjust the inputs to reflect your scenario. All outputs are illustrative — actual results vary by deal, structure, and market conditions.</p>
+
+      <!-- TAB SWITCHER -->
+      <div class="calc-tabs" role="tablist">
+        <button class="calc-tab active" data-tab="credit" role="tab" aria-selected="true">Private Credit Fund</button>
+        <button class="calc-tab" data-tab="equity" role="tab" aria-selected="false">Multifamily Equity</button>
+      </div>
+
+      <!-- ========== PRIVATE CREDIT PANEL ========== -->
+      <div class="calc-panel active" id="panel-credit">
+        <div class="calc-grid">
+
+          <!-- INPUTS -->
+          <div class="calc-inputs">
+            <div class="calc-input-group">
+              <div class="calc-input-header">
+                <span class="calc-input-label">Investment Amount</span>
+                <span class="calc-input-value" id="credit-investment-val">$100,000</span>
+              </div>
+              <input type="range" class="calc-slider" id="credit-investment" min="50000" max="1000000" step="5000" value="100000">
+              <div class="calc-slider-range">
+                <span>$50K</span><span>$1M</span>
+              </div>
+            </div>
+
+            <div class="calc-input-group">
+              <div class="calc-input-header">
+                <span class="calc-input-label">Annual Return</span>
+                <span class="calc-input-value" id="credit-return-val">12%</span>
+              </div>
+              <input type="range" class="calc-slider" id="credit-return" min="8" max="16" step="0.5" value="12">
+              <div class="calc-slider-range">
+                <span>8%</span><span>16%</span>
+              </div>
+            </div>
+
+            <div class="calc-input-group">
+              <div class="calc-input-header">
+                <span class="calc-input-label">Hold Period</span>
+                <span class="calc-input-value" id="credit-years-val">3 years</span>
+              </div>
+              <input type="range" class="calc-slider" id="credit-years" min="1" max="10" step="1" value="3">
+              <div class="calc-slider-range">
+                <span>1 yr</span><span>10 yr</span>
+              </div>
+            </div>
+
+            <div class="calc-input-group">
+              <div class="calc-input-header">
+                <span class="calc-input-label">Distribution Frequency</span>
+              </div>
+              <div class="calc-freq-toggle" data-target="credit">
+                <button type="button" class="calc-freq-btn active" data-freq="quarterly">Quarterly</button>
+                <button type="button" class="calc-freq-btn" data-freq="monthly">Monthly</button>
+              </div>
+            </div>
+
+            <div style="font-family:'Outfit',sans-serif;font-weight:300;font-size:12px;color:var(--text-mid);line-height:1.65;border-top:1px solid var(--border);padding-top:24px;margin-top:8px;">
+              Income Fund I targets a 10–12% preferred return paid quarterly, with a 14–15% target total return when the 50/50 profit share above preferred is included.
+            </div>
+          </div>
+
+          <!-- OUTPUTS -->
+          <div class="calc-outputs">
+            <div class="calc-output-label">Projected Annual Income</div>
+            <div class="calc-output-main" id="credit-annual">$12,000</div>
+            <div class="calc-output-caption">
+              <span id="credit-freq-caption">Distributed quarterly · $3,000 per quarter</span>
+            </div>
+
+            <div class="calc-output-divider"></div>
+
+            <div class="calc-stat-row">
+              <span class="calc-stat-label" id="credit-period-label">Quarterly distribution</span>
+              <span class="calc-stat-value" id="credit-period-value">$3,000</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Total income over hold period</span>
+              <span class="calc-stat-value" id="credit-total-income">$36,000</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Principal returned at term</span>
+              <span class="calc-stat-value" id="credit-principal">$100,000</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Total capital returned</span>
+              <span class="calc-stat-value" id="credit-total-return">$136,000</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Cash-on-cash ROI (annual)</span>
+              <span class="calc-stat-value" id="credit-coc">12.0%</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Projected IRR</span>
+              <span class="calc-stat-value" id="credit-irr">12.0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== MULTIFAMILY EQUITY PANEL ========== -->
+      <div class="calc-panel" id="panel-equity">
+        <div class="calc-grid">
+
+          <!-- INPUTS -->
+          <div class="calc-inputs">
+            <div class="calc-input-group">
+              <div class="calc-input-header">
+                <span class="calc-input-label">Investment Amount</span>
+                <span class="calc-input-value" id="equity-investment-val">$100,000</span>
+              </div>
+              <input type="range" class="calc-slider" id="equity-investment" min="50000" max="1000000" step="5000" value="100000">
+              <div class="calc-slider-range">
+                <span>$50K</span><span>$1M</span>
+              </div>
+            </div>
+
+            <div class="calc-input-group">
+              <div class="calc-input-header">
+                <span class="calc-input-label">Preferred Return</span>
+                <span class="calc-input-value" id="equity-pref-val">8%</span>
+              </div>
+              <input type="range" class="calc-slider" id="equity-pref" min="6" max="10" step="0.5" value="8">
+              <div class="calc-slider-range">
+                <span>6%</span><span>10%</span>
+              </div>
+            </div>
+
+            <div class="calc-input-group">
+              <div class="calc-input-header">
+                <span class="calc-input-label">Equity Multiple at Exit</span>
+                <span class="calc-input-value" id="equity-multiple-val">2.0×</span>
+              </div>
+              <input type="range" class="calc-slider" id="equity-multiple" min="1.5" max="2.5" step="0.1" value="2.0">
+              <div class="calc-slider-range">
+                <span>1.5×</span><span>2.5×</span>
+              </div>
+            </div>
+
+            <div class="calc-input-group">
+              <div class="calc-input-header">
+                <span class="calc-input-label">Hold Period</span>
+                <span class="calc-input-value" id="equity-years-val">5 years</span>
+              </div>
+              <input type="range" class="calc-slider" id="equity-years" min="3" max="7" step="1" value="5">
+              <div class="calc-slider-range">
+                <span>3 yr</span><span>7 yr</span>
+              </div>
+            </div>
+
+            <div class="calc-input-group">
+              <div class="calc-input-header">
+                <span class="calc-input-label">Distribution Frequency</span>
+              </div>
+              <div class="calc-freq-toggle" data-target="equity">
+                <button type="button" class="calc-freq-btn active" data-freq="quarterly">Quarterly</button>
+                <button type="button" class="calc-freq-btn" data-freq="monthly">Monthly</button>
+              </div>
+            </div>
+
+            <div style="font-family:'Outfit',sans-serif;font-weight:300;font-size:12px;color:var(--text-mid);line-height:1.65;border-top:1px solid var(--border);padding-top:24px;margin-top:8px;">
+              Multifamily syndications typically structure a preferred return paid from quarterly distributions, with the remainder of total returns delivered at the property sale event.
+            </div>
+          </div>
+
+          <!-- OUTPUTS -->
+          <div class="calc-outputs">
+            <div class="calc-output-label">Projected Total Profit</div>
+            <div class="calc-output-main" id="equity-total-profit">$100,000</div>
+            <div class="calc-output-caption">
+              Over a <span id="equity-years-caption">5-year</span> hold, on $<span id="equity-investment-caption">100,000</span> committed
+            </div>
+
+            <div class="calc-output-divider"></div>
+
+            <div class="calc-stat-row">
+              <span class="calc-stat-label" id="equity-period-label">Quarterly distribution</span>
+              <span class="calc-stat-value" id="equity-period-value">$2,000</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Annual cash distribution</span>
+              <span class="calc-stat-value" id="equity-annual">$8,000</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Total cash during hold</span>
+              <span class="calc-stat-value" id="equity-total-cash">$40,000</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Proceeds at exit</span>
+              <span class="calc-stat-value" id="equity-exit-proceeds">$160,000</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Total capital returned</span>
+              <span class="calc-stat-value" id="equity-total-return">$200,000</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Average cash-on-cash (annual)</span>
+              <span class="calc-stat-value" id="equity-coc">20.0%</span>
+            </div>
+            <div class="calc-stat-row">
+              <span class="calc-stat-label">Projected IRR</span>
+              <span class="calc-stat-value" id="equity-irr">15.2%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="margin-top:56px;padding:36px;border:1px solid var(--border);background:var(--bg-alt);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;">
+        <div style="max-width:560px;">
+          <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Next Step</div>
+          <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--text);line-height:1.3;">Want to discuss your scenario with the principals?</div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="contact.html#contact" class="btn btn--dark" style="font-size:12px;padding:14px 24px;">Schedule a Call</a>
+          <a href="https://sevenpeakcapital.cashflowportal.com/offering/94cceeaa7c5b435e9b2acb601989cd0b" class="btn btn--outline" style="font-size:12px;padding:14px 24px;" target="_blank" rel="noopener noreferrer">Join the Waitlist</a>
+        </div>
+      </div>
+
+      <!-- COMPLIANCE DISCLAIMER -->
+      <div class="calc-disclaimer">
+        <div class="calc-disclaimer-title">Important Disclosures</div>
+        <p class="calc-disclaimer-text">
+          The calculations on this page are for illustrative and educational purposes only. They do not constitute an offer to sell or a solicitation of an offer to buy any security, nor do they represent a guarantee of any return. Actual investment performance will vary based on deal structure, market conditions, leverage, operating performance, exit timing, and a number of other factors beyond Seven Peak Capital's control. Hypothetical scenarios shown above assume idealized cash flows and timing and do not reflect transaction costs, taxes, fees, or any fund-specific waterfall mechanics. Past performance is not indicative of future results. All investments carry the risk of loss, including the possible loss of principal. Securities offerings are made only to accredited investors pursuant to Rule 506(c) of Regulation D and only through the relevant Private Placement Memorandum. Seven Peak Capital LLC is not a registered investment advisor. Consult your own legal, tax, and financial advisors before making any investment decision.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img src="Seven Peak Capital Logo-02 (3).png" alt="Seven Peak Capital" style="height:36px;width:auto;display:block;">
+          </div>
+          <p class="footer-tagline">Institutional-grade real estate and private credit — built for accredited investors, starting at $50K.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <nav class="footer-nav-links">
+            <a href="about.html">About</a>
+            <a href="strategy.html">Strategy</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="income-fund.html">Income Fund I</a>
+            <a href="resources.html">Resources</a>
+            <a href="calculator.html">Calculator</a>
+            <a href="podcast.html">Podcast</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <nav class="footer-nav-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="disclosures.html">Disclosures</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Seven Peak Capital LLC. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+          <a href="disclosures.html">Disclosures</a>
+        </div>
+        <p class="footer-disclaimer">The information provided on this website is for informational and educational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security. Any investment opportunities referenced are available only through official offering documents and in accordance with applicable securities laws. Investments involve risk, including the possible loss of capital. Past performance does not guarantee future results. Seven Peak Capital LLC is not a registered investment advisor. Securities offerings are made only to accredited investors pursuant to Rule 506(c) of Regulation D.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ========== NAV ==========
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => {
+      if (window.scrollY > 20) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    function openMobile() { mobileMenu.classList.add('open'); mobileMenu.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+    function closeMobile() { mobileMenu.classList.remove('open'); mobileMenu.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+    hamburger.addEventListener('click', openMobile);
+    mobileClose.addEventListener('click', closeMobile);
+    document.querySelectorAll('.mobile-link, .nav-mobile .btn').forEach(el => el.addEventListener('click', closeMobile));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
+
+    // ========== TAB SWITCHER ==========
+    const tabs = document.querySelectorAll('.calc-tab');
+    const panels = document.querySelectorAll('.calc-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        document.getElementById('panel-' + target).classList.add('active');
+      });
+    });
+
+    // ========== FORMATTERS ==========
+    const fmtMoney = (n) => '$' + Math.round(n).toLocaleString();
+    const fmtMoneyK = (n) => {
+      if (n >= 1000000) return '$' + (n / 1000000).toFixed(2).replace(/\.?0+$/, '') + 'M';
+      if (n >= 1000) return '$' + Math.round(n / 1000) + 'K';
+      return '$' + Math.round(n);
+    };
+    const fmtPct = (n) => n.toFixed(1) + '%';
+
+    // ========== IRR (Newton-Raphson) ==========
+    function calculateIRR(cashflows, guess = 0.1) {
+      const epsilon = 1e-6;
+      let r = guess;
+      for (let iter = 0; iter < 100; iter++) {
+        let npv = 0, dnpv = 0;
+        for (let t = 0; t < cashflows.length; t++) {
+          const denom = Math.pow(1 + r, t);
+          npv += cashflows[t] / denom;
+          if (t > 0) dnpv -= t * cashflows[t] / (denom * (1 + r));
+        }
+        if (Math.abs(npv) < epsilon) return r;
+        if (dnpv === 0) break;
+        const newR = r - npv / dnpv;
+        if (Math.abs(newR - r) < epsilon) return newR;
+        r = newR;
+      }
+      return r;
+    }
+
+    // ========== FREQUENCY STATE ==========
+    const freqState = { credit: 'quarterly', equity: 'quarterly' };
+
+    document.querySelectorAll('.calc-freq-toggle').forEach(group => {
+      const target = group.dataset.target;
+      group.querySelectorAll('.calc-freq-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          group.querySelectorAll('.calc-freq-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          freqState[target] = btn.dataset.freq;
+          if (target === 'credit') updateCredit();
+          if (target === 'equity') updateEquity();
+        });
+      });
+    });
+
+    // ========== PRIVATE CREDIT CALCULATOR ==========
+    const creditInputs = {
+      investment: document.getElementById('credit-investment'),
+      return: document.getElementById('credit-return'),
+      years: document.getElementById('credit-years'),
+    };
+
+    function updateCredit() {
+      const invest = +creditInputs.investment.value;
+      const rate = +creditInputs.return.value / 100;
+      const years = +creditInputs.years.value;
+      const freq = freqState.credit;
+
+      const annual = invest * rate;
+      const periodCount = freq === 'monthly' ? 12 : 4;
+      const perPeriod = annual / periodCount;
+      const totalIncome = annual * years;
+      const totalReturn = invest + totalIncome;
+      const coc = rate * 100;
+
+      // IRR for pure income stream with principal back at term
+      const cf = [-invest];
+      for (let t = 1; t < years; t++) cf.push(annual);
+      cf.push(annual + invest);
+      const irr = calculateIRR(cf, rate);
+
+      const freqLabel = freq === 'monthly' ? 'monthly' : 'quarterly';
+      const freqLabelCap = freq === 'monthly' ? 'Monthly' : 'Quarterly';
+      const freqUnit = freq === 'monthly' ? 'month' : 'quarter';
+
+      document.getElementById('credit-investment-val').textContent = fmtMoney(invest);
+      document.getElementById('credit-return-val').textContent = (+creditInputs.return.value) + '%';
+      document.getElementById('credit-years-val').textContent = years + (years === 1 ? ' year' : ' years');
+      document.getElementById('credit-annual').textContent = fmtMoney(annual);
+      document.getElementById('credit-freq-caption').textContent =
+        'Distributed ' + freqLabel + ' · ' + fmtMoney(perPeriod) + ' per ' + freqUnit;
+      document.getElementById('credit-period-label').textContent = freqLabelCap + ' distribution';
+      document.getElementById('credit-period-value').textContent = fmtMoney(perPeriod);
+      document.getElementById('credit-total-income').textContent = fmtMoney(totalIncome);
+      document.getElementById('credit-principal').textContent = fmtMoney(invest);
+      document.getElementById('credit-total-return').textContent = fmtMoney(totalReturn);
+      document.getElementById('credit-coc').textContent = fmtPct(coc);
+      document.getElementById('credit-irr').textContent = fmtPct(irr * 100);
+    }
+
+    Object.values(creditInputs).forEach(input => input.addEventListener('input', updateCredit));
+    updateCredit();
+
+    // ========== EQUITY CALCULATOR ==========
+    const equityInputs = {
+      investment: document.getElementById('equity-investment'),
+      pref: document.getElementById('equity-pref'),
+      multiple: document.getElementById('equity-multiple'),
+      years: document.getElementById('equity-years'),
+    };
+
+    function updateEquity() {
+      const invest = +equityInputs.investment.value;
+      const prefRate = +equityInputs.pref.value / 100;
+      const multiple = +equityInputs.multiple.value;
+      const years = +equityInputs.years.value;
+      const freq = freqState.equity;
+
+      const annualCash = invest * prefRate;
+      const periodCount = freq === 'monthly' ? 12 : 4;
+      const perPeriod = annualCash / periodCount;
+      const totalCashDuringHold = annualCash * years;
+      const totalReturned = invest * multiple;
+      const exitProceeds = totalReturned - totalCashDuringHold;
+      const totalProfit = totalReturned - invest;
+      const avgCoC = (totalProfit / invest / years) * 100;
+
+      const cf = [-invest];
+      for (let t = 1; t < years; t++) cf.push(annualCash);
+      cf.push(annualCash + exitProceeds);
+      const irr = calculateIRR(cf, 0.12);
+
+      const freqLabelCap = freq === 'monthly' ? 'Monthly' : 'Quarterly';
+
+      document.getElementById('equity-investment-val').textContent = fmtMoney(invest);
+      document.getElementById('equity-pref-val').textContent = (+equityInputs.pref.value) + '%';
+      document.getElementById('equity-multiple-val').textContent = multiple.toFixed(1) + '×';
+      document.getElementById('equity-years-val').textContent = years + ' years';
+      document.getElementById('equity-total-profit').textContent = fmtMoney(totalProfit);
+      document.getElementById('equity-years-caption').textContent = years + '-year';
+      document.getElementById('equity-investment-caption').textContent = invest.toLocaleString();
+      document.getElementById('equity-period-label').textContent = freqLabelCap + ' distribution';
+      document.getElementById('equity-period-value').textContent = fmtMoney(perPeriod);
+      document.getElementById('equity-annual').textContent = fmtMoney(annualCash);
+      document.getElementById('equity-total-cash').textContent = fmtMoney(totalCashDuringHold);
+      document.getElementById('equity-exit-proceeds').textContent = fmtMoney(exitProceeds);
+      document.getElementById('equity-total-return').textContent = fmtMoney(totalReturned);
+      document.getElementById('equity-coc').textContent = fmtPct(avgCoC);
+      document.getElementById('equity-irr').textContent = fmtPct(irr * 100);
+    }
+
+    Object.values(equityInputs).forEach(input => input.addEventListener('input', updateEquity));
+    updateEquity();
+  </script>
+
+</body>
+</html>
