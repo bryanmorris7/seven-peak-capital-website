@@ -1,0 +1,39 @@
+SEVEN PEAK CAPITAL — GHL TAG LIST
+==================================
+Create each of these in: Settings → Tags → New Tag
+Copy/paste the names exactly. Lowercase, hyphenated.
+
+DRIP STATE TAGS
+---------------
+drip-investor-active
+drip-engaged
+drip-investor-completed
+drip-investor-cold
+
+CLICK BEHAVIOR TAGS
+-------------------
+drip-clicked-waitlist
+drip-clicked-call
+drip-clicked-podcast
+drip-clicked-portal
+
+CONVERSION TAGS
+---------------
+booked-call
+investor-committed
+unsubscribed
+
+ENTRY SOURCE TAGS
+-----------------
+manual-add-cold
+
+INTERNAL TAGS (optional but recommended)
+----------------------------------------
+internal-test
+chris-rep
+bryan-rep
+
+==================================
+TOTAL: 12 required + 3 optional = 15 tags
+TIME TO CREATE: 5 minutes
+==================================

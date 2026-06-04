@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SPC Drip Campaign — Proofreading Index</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #07090E;
+    color: #9097A3;
+    line-height: 1.6;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    padding: 48px 24px 96px;
+  }
+  .container { max-width: 980px; margin: 0 auto; }
+
+  .header { padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 48px; }
+  .label { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #C09A2B; }
+  .gold-rule { display: block; width: 40px; height: 1px; background: #C09A2B; margin: 16px 0 24px; }
+  h1 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 48px; line-height: 1.1; letter-spacing: -0.01em; color: #FFFFFF; margin-bottom: 16px; }
+  h1 em { font-style: italic; color: #D4B149; }
+  .lede { font-size: 17px; color: #9097A3; max-width: 640px; }
+
+  h2 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; color: #FFFFFF; margin: 64px 0 8px; }
+  .section-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: #5B6271; margin-bottom: 32px; }
+
+  .email-list { list-style: none; }
+  .email-row {
+    display: grid;
+    grid-template-columns: 64px 1fr 120px;
+    gap: 24px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: #0F141D;
+    margin-bottom: 12px;
+    transition: all 0.2s ease;
+    align-items: center;
+  }
+  .email-row:hover { border-color: rgba(192,154,43,0.4); background: #141A24; }
+  .email-num { font-family: 'JetBrains Mono', monospace; font-size: 24px; color: #C09A2B; font-weight: 500; }
+  .email-subject { font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; color: #FFFFFF; line-height: 1.3; margin-bottom: 6px; }
+  .email-preview { font-size: 13px; color: #9097A3; }
+  .email-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; color: #5B6271; text-transform: uppercase; margin-top: 6px; }
+  .view-btn {
+    display: inline-block; padding: 10px 18px;
+    background: transparent; border: 1px solid rgba(192,154,43,0.4);
+    color: #C09A2B; font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; text-decoration: none; text-align: center;
+    transition: all 0.2s ease;
+  }
+  .view-btn:hover { background: #C09A2B; color: #07090E; border-color: #C09A2B; }
+
+  .docs-list { list-style: none; }
+  .doc-row {
+    padding: 18px 24px;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: #0F141D;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .doc-row:hover { border-color: rgba(192,154,43,0.25); }
+  .doc-name { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #EDEFF2; }
+  .doc-desc { font-size: 13px; color: #9097A3; flex: 1; padding: 0 24px; }
+  .doc-link { color: #C09A2B; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; font-weight: 500; }
+  .doc-link:hover { color: #D4B149; }
+
+  .footer-note { margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: #5B6271; }
+
+  @media (max-width: 720px) {
+    .email-row { grid-template-columns: 1fr; }
+    .email-num { font-size: 18px; }
+    h1 { font-size: 36px; }
+    .doc-row { flex-direction: column; align-items: flex-start; }
+    .doc-desc { padding: 8px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <span class="label">Investor Drip Campaign</span>
+    <span class="gold-rule"></span>
+    <h1>Proofreading <em>Index</em>.</h1>
+    <p class="lede">Click any email to preview the rendered version. All 15 templates plus supporting documentation. Read each one as a recipient would before pushing to GHL tomorrow.</p>
+  </header>
+
+  <h2>The 12-email drip</h2>
+  <p class="section-meta">~30 days · cold lead nurture · evergreen</p>
+
+  <ul class="email-list">
+
+    <li class="email-row">
+      <div class="email-num">01</div>
+      <div>
+        <div class="email-subject">You're in.</div>
+        <div class="email-preview">11 lessons. About 30 days. Then you decide.</div>
+        <div class="email-meta">DAY 0 · WELCOME</div>
+      </div>
+      <a href="email-01-welcome.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">02</div>
+      <div>
+        <div class="email-subject">Plain English: how private real estate actually works</div>
+        <div class="email-preview">Syndication, LPs, sponsors — translated.</div>
+        <div class="email-meta">DAY 2 · FOUNDATION</div>
+      </div>
+      <a href="email-02-plain-english.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">03</div>
+      <div>
+        <div class="email-subject">Why we built Seven Peak Capital</div>
+        <div class="email-preview">It started in 2016 with a Lowe's credit card.</div>
+        <div class="email-meta">DAY 5 · FOUNDER STORY</div>
+      </div>
+      <a href="email-03-why-we-built.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">04</div>
+      <div>
+        <div class="email-subject">There are only two ways to make money in real estate</div>
+        <div class="email-preview">Pick one and you're already losing.</div>
+        <div class="email-meta">DAY 8 · INCOME VS APPRECIATION</div>
+      </div>
+      <a href="email-04-two-ways.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">05</div>
+      <div>
+        <div class="email-subject">If you'd rather listen than read</div>
+        <div class="email-preview">Peak Profits — conversations with the people moving capital.</div>
+        <div class="email-meta">DAY 11 · PODCAST DROP</div>
+      </div>
+      <a href="email-05-podcast.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">06</div>
+      <div>
+        <div class="email-subject">The deal is the sponsor</div>
+        <div class="email-preview">Five questions that filter out 95% of operators.</div>
+        <div class="email-meta">DAY 14 · SPONSOR DILIGENCE</div>
+      </div>
+      <a href="email-06-deal-is-sponsor.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">07</div>
+      <div>
+        <div class="email-subject">How to read a deal in 10 minutes</div>
+        <div class="email-preview">Skip the pitch deck. Go to four numbers.</div>
+        <div class="email-meta">DAY 17 · UNDERWRITING</div>
+      </div>
+      <a href="email-07-read-a-deal.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">08</div>
+      <div>
+        <div class="email-subject">The boring trade most investors miss</div>
+        <div class="email-preview">Why being the bank beats owning the building.</div>
+        <div class="email-meta">DAY 20 · INCOME FUND I INTRO</div>
+      </div>
+      <a href="email-08-be-the-bank.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">09</div>
+      <div>
+        <div class="email-subject">Active real estate is a job</div>
+        <div class="email-preview">The shift from operator to allocator.</div>
+        <div class="email-meta">DAY 23 · MINDSET SHIFT</div>
+      </div>
+      <a href="email-09-operator-vs-allocator.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">10</div>
+      <div>
+        <div class="email-subject">The only number that matters</div>
+        <div class="email-preview">Net worth is a vanity metric.</div>
+        <div class="email-meta">DAY 26 · CASH FLOW FRAMING</div>
+      </div>
+      <a href="email-10-only-number.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">11</div>
+      <div>
+        <div class="email-subject">Inside the investor portal</div>
+        <div class="email-preview">Where investing happens. A short tour.</div>
+        <div class="email-meta">DAY 28 · PORTAL WALKTHROUGH</div>
+      </div>
+      <a href="email-11-investor-portal.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num">12</div>
+      <div>
+        <div class="email-subject">The honest fit check</div>
+        <div class="email-preview">Three options. Pick one.</div>
+        <div class="email-meta">DAY 30 · THE ASK</div>
+      </div>
+      <a href="email-12-fit-check.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+  </ul>
+
+
+  <h2>Booked-call sequence</h2>
+  <p class="section-meta">workflow 2 · pre-call + post-call · both automated · evergreen</p>
+
+  <ul class="email-list">
+
+    <li class="email-row">
+      <div class="email-num" style="font-size:14px;">PRE</div>
+      <div>
+        <div class="email-subject">Confirmed — call confirmation</div>
+        <div class="email-preview">One question worth thinking about before we hop on.</div>
+        <div class="email-meta">24H BEFORE APPOINTMENT · AUTO-SEND</div>
+      </div>
+      <a href="email-pre-call.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+    <li class="email-row">
+      <div class="email-num" style="font-size:14px;">POST</div>
+      <div>
+        <div class="email-subject">Notes from our call</div>
+        <div class="email-preview">Resources to keep handy. No timeline pressure.</div>
+        <div class="email-meta">4H AFTER APPOINTMENT · AUTO-SEND</div>
+      </div>
+      <a href="email-post-call.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+  </ul>
+
+
+  <h2>One-time blast</h2>
+  <p class="section-meta">re-engagement · for dormant lists</p>
+
+  <ul class="email-list">
+
+    <li class="email-row">
+      <div class="email-num" style="font-size:14px;">CRM</div>
+      <div>
+        <div class="email-subject">It's been a minute.</div>
+        <div class="email-preview">Income Fund I waitlist is open for the 2026 vintage. Here's what changed.</div>
+        <div class="email-meta">SEPARATE BROADCAST · NOT IN DRIP</div>
+      </div>
+      <a href="crm-reengagement-blast.html" class="view-btn" target="_blank">View &rarr;</a>
+    </li>
+
+  </ul>
+
+
+  <h2>Documentation</h2>
+  <p class="section-meta">build guides + reference docs</p>
+
+  <ul class="docs-list">
+
+    <li class="doc-row">
+      <span class="doc-name">DAY-OF-BUILD-RUNBOOK.md</span>
+      <span class="doc-desc">Step-by-step GHL build for tomorrow. ~2.5 hours start to finish.</span>
+      <a href="DAY-OF-BUILD-RUNBOOK.md" class="doc-link" target="_blank">Open &rarr;</a>
+    </li>
+
+    <li class="doc-row">
+      <span class="doc-name">WORKFLOW-GUIDE.md</span>
+      <span class="doc-desc">Architecture: 2 workflows, exit conditions, manual entry, dedup logic.</span>
+      <a href="WORKFLOW-GUIDE.md" class="doc-link" target="_blank">Open &rarr;</a>
+    </li>
+
+    <li class="doc-row">
+      <span class="doc-name">SETUP-README.md</span>
+      <span class="doc-desc">Design tokens, voice rules, locked disclosure language, Phase 2 enhancements.</span>
+      <a href="SETUP-README.md" class="doc-link" target="_blank">Open &rarr;</a>
+    </li>
+
+    <li class="doc-row">
+      <span class="doc-name">UTM-LINK-MAP.md</span>
+      <span class="doc-desc">Pre-built UTM-tagged URLs for every link in every email.</span>
+      <a href="UTM-LINK-MAP.md" class="doc-link" target="_blank">Open &rarr;</a>
+    </li>
+
+    <li class="doc-row">
+      <span class="doc-name">TAGS.txt</span>
+      <span class="doc-desc">Plain-text list of 15 GHL tags. Copy-paste during setup.</span>
+      <a href="TAGS.txt" class="doc-link" target="_blank">Open &rarr;</a>
+    </li>
+
+  </ul>
+
+
+  <p class="footer-note">
+    <strong style="color:#EDEFF2;font-weight:500;">How to use this page:</strong> Open this file (<code style="color:#C09A2B;font-family:'JetBrains Mono',monospace;font-size:12px;">index.html</code>) by double-clicking it in Finder. Each email opens in a new browser tab. Read top to bottom — that's the order recipients receive them. Note any copy edits you want made before tomorrow's GHL build.
+    <br /><br />
+    <strong style="color:#EDEFF2;font-weight:500;">Evergreen status:</strong> All 12 drip emails are written to remain accurate over time. The only time-bound references are the "Income Fund I — 2026 reopening" mentions in emails 02, 08, 11, 12, the post-call template, and the CRM blast. Those will need a one-time refresh once the fund actually reopens. Everything else stays as-is.
+  </p>
+
+</div>
+
+</body>
+</html>

@@ -4,6 +4,7 @@
 
 # Editor artifacts
 *.swp
+*.bak
 .idea/
 .vscode/
 
