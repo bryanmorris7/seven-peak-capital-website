@@ -228,7 +228,6 @@
             <a href="strategy.html">Strategy</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="income-fund.html">Income Fund</a>
-            <a href="income-fund.html">Income Fund I (Closed)</a>
             <a href="resources.html">Resources</a>
             <a href="index.html#team">Principals</a>
             <a href="podcast.html">Podcast</a>
@@ -286,6 +285,11 @@
     document.querySelectorAll('.mobile-link, .nav-mobile .btn').forEach(el => el.addEventListener('click', closeMobile));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
   </script>
+
+  <!-- Sticky mobile CTA -->
+  <div class="mobile-sticky-cta">
+    <a href="contact.html#contact" class="mobile-sticky-cta-btn">Join the Investor List</a>
+  </div>
 
 </body>
 </html>

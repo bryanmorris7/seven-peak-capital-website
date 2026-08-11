@@ -2670,3 +2670,61 @@ a.resource-card:hover::after {
   }
   .fade-up { opacity: 1 !important; transform: none !important; }
 }
+
+
+/* ============================= BREADCRUMBS ============================= */
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+.breadcrumbs a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.breadcrumbs a:hover { color: var(--gold); }
+.breadcrumbs .bc-sep { color: var(--gold); opacity: 0.55; }
+.breadcrumbs .bc-current { color: var(--text-secondary); }
+
+/* ============================= STICKY MOBILE CTA ============================= */
+
+.mobile-sticky-cta { display: none; }
+
+@media (max-width: 768px) {
+  .mobile-sticky-cta {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1200;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(7, 9, 14, 0.92);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border-gold);
+  }
+  .mobile-sticky-cta-btn {
+    display: block;
+    text-align: center;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    padding: 14px 20px;
+    border-radius: 2px;
+    text-decoration: none;
+  }
+  body:has(.mobile-sticky-cta) #footer { padding-bottom: 110px; }
+}

@@ -293,9 +293,9 @@
             <div class="calc-input-group">
               <div class="calc-input-header">
                 <span class="calc-input-label">Annual Return</span>
-                <span class="calc-input-value" id="credit-return-val">12%</span>
+                <span class="calc-input-value" id="credit-return-val">10%</span>
               </div>
-              <input type="range" class="calc-slider" id="credit-return" min="8" max="16" step="0.5" value="12">
+              <input type="range" class="calc-slider" id="credit-return" min="8" max="16" step="0.5" value="10">
               <div class="calc-slider-range">
                 <span>8%</span><span>16%</span>
               </div>
@@ -317,13 +317,13 @@
                 <span class="calc-input-label">Distribution Frequency</span>
               </div>
               <div class="calc-freq-toggle" data-target="credit">
-                <button type="button" class="calc-freq-btn active" data-freq="quarterly">Quarterly</button>
-                <button type="button" class="calc-freq-btn" data-freq="monthly">Monthly</button>
+                <button type="button" class="calc-freq-btn" data-freq="quarterly">Quarterly</button>
+                <button type="button" class="calc-freq-btn active" data-freq="monthly">Monthly</button>
               </div>
             </div>
 
             <div style="font-family:'Outfit',sans-serif;font-weight:300;font-size:12px;color:var(--text-mid);line-height:1.65;border-top:1px solid var(--border);padding-top:24px;margin-top:8px;">
-              Income Fund I targets a 10–12% preferred return paid quarterly, with a 14–15% target total return when the 50/50 profit share above preferred is included.
+              Income Fund II targets a 10% preferred return paid monthly, with a 50/50 profit share above the preferred.
             </div>
           </div>
 
@@ -603,7 +603,7 @@
     }
 
     // ========== FREQUENCY STATE ==========
-    const freqState = { credit: 'quarterly', equity: 'quarterly' };
+    const freqState = { credit: 'monthly', equity: 'quarterly' };
 
     document.querySelectorAll('.calc-freq-toggle').forEach(group => {
       const target = group.dataset.target;
@@ -717,6 +717,11 @@
     Object.values(equityInputs).forEach(input => input.addEventListener('input', updateEquity));
     updateEquity();
   </script>
+
+  <!-- Sticky mobile CTA -->
+  <div class="mobile-sticky-cta">
+    <a href="contact.html#contact" class="mobile-sticky-cta-btn">Join the Investor List</a>
+  </div>
 
 </body>
 </html>

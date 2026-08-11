@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Thank you — Seven Peak Capital." />
+  <meta name="robots" content="noindex, follow" />
+  <title>Thank You | Seven Peak Capital</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0%25' stop-color='%23896101'/%3E%3Cstop offset='100%25' stop-color='%23C09A2B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='4,28 14,6 24,28' fill='url(%23g)'/%3E%3Cpolyline points='16,28 24,10 32,28' fill='none' stroke='url(%23g)' stroke-width='2.2' stroke-linejoin='miter'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-98M8H737E0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-98M8H737E0');
+  </script>
+  <style>
+    .ty-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+    }
+    .ty-mark {
+      width: 64px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border-gold);
+      border-radius: 50%;
+      margin-bottom: 36px;
+      color: var(--gold);
+    }
+    .ty-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .ty-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.1;
+      color: var(--text-hero);
+      margin-bottom: 22px;
+    }
+    .ty-sub {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 44px;
+    }
+    .ty-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .ty-next {
+      margin-top: 64px;
+      max-width: 560px;
+      text-align: left;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      background: var(--surface);
+      padding: 26px 30px;
+    }
+    .ty-next-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .ty-next p {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="ty-wrap">
+    <div class="ty-mark" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><polyline points="4,13 10,19 20,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <div class="ty-eyebrow">Confirmed</div>
+    <h1 class="ty-title" id="tyTitle">Message received.</h1>
+    <p class="ty-sub" id="tySub">Thank you for reaching out. A member of the Seven Peak team will be in touch within one business day.</p>
+
+    <div class="ty-actions">
+      <a href="/income-fund.html" class="btn btn--dark">Explore Income Fund II</a>
+      <a href="/resources.html" class="btn btn--outline">Investor Resources</a>
+    </div>
+
+    <div class="ty-next">
+      <div class="ty-next-title">While You Wait</div>
+      <p>See how we underwrite: three full case studies — <a href="/case-study/grand-riviera.html" style="color:var(--gold);text-decoration:none;">Grand Riviera</a>, <a href="/case-study/azur-apartments.html" style="color:var(--gold);text-decoration:none;">Azur Apartments</a>, and <a href="/case-study/preserve-at-copper-springs.html" style="color:var(--gold);text-decoration:none;">Preserve at Copper Springs</a> — walk through the numbers deal by deal.</p>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var form = new URLSearchParams(window.location.search).get('form') || '';
+      if (form === 'investor-list') {
+        document.getElementById('tyTitle').textContent = "You're on the list.";
+        document.getElementById('tySub').textContent = "Expect deal flow, market notes, and fund updates from Seven Peak Capital — signal, not noise.";
+      }
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', { form_type: form || 'unknown' });
+      }
+    })();
+  </script>
+
+</body>
+</html>

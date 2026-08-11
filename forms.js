@@ -82,19 +82,9 @@
       })
         .then(function (res) {
           if (!res.ok) throw new Error('HTTP ' + res.status);
-          var successMsg = formName === 'investor-list'
-            ? "You're on the list. Expect updates from Seven Peak Capital shortly."
-            : "Message received. We'll be in touch within one business day.";
-          showMessage(form, 'success', successMsg);
           form.reset();
-          // Hide form fields after success for the inquiry form (keep the message)
-          if (formName === 'investor-inquiry') {
-            Array.prototype.forEach.call(form.children, function (child) {
-              if (!child.classList || !child.classList.contains('form-message')) {
-                child.style.display = 'none';
-              }
-            });
-          }
+          // Redirect to dedicated thank-you page (GA4 conversion target)
+          window.location.href = '/thank-you.html?form=' + encodeURIComponent(formName);
         })
         .catch(function () {
           showMessage(form, 'error', 'Something went wrong. Please email bryan@sevenpeakcapital.com directly and we\'ll take it from there.');
