@@ -1,0 +1,11 @@
+# Secrets — NEVER commit
+.env
+.env.local
+*.token
+
+# Node
+node_modules/
+package-lock.json
+
+# Raw scraper dumps (large, regenerated on each run)
+data/raw/
