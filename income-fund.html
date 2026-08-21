@@ -222,6 +222,172 @@
     </div>
   </section>
 
+  <!-- INCOME CALCULATOR -->
+  <section style="background:#07090E;padding:80px 0;border-bottom:1px solid #1F2330;">
+    <div class="container" style="max-width:960px;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <span class="label fade-up" style="color:#C09A2B;">Income Calculator</span>
+        <span class="gold-rule fade-up" style="margin:14px auto 24px;display:block;"></span>
+        <h2 class="fade-up" style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(32px,4vw,48px);line-height:1.15;color:var(--text);margin-bottom:16px;">Calculate Your Projected Income</h2>
+        <p class="fade-up fade-up-d1" style="font-family:'Outfit',sans-serif;font-weight:300;font-size:17px;line-height:1.6;color:var(--text-secondary);max-width:640px;margin:0 auto;">Enter your investment amount to see what a 10% preferred return looks like in real dollars — paid monthly.</p>
+      </div>
+
+      <div class="fade-up fade-up-d2" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#1F2330;border:1px solid #1F2330;">
+
+        <!-- LEFT: INPUT -->
+        <div style="background:#0B0E14;padding:44px 40px;">
+          <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-light);margin-bottom:16px;">Investment Amount</div>
+
+          <div style="position:relative;margin-bottom:28px;">
+            <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);font-family:'Outfit',sans-serif;font-size:22px;font-weight:500;color:var(--text-secondary);">$</span>
+            <input
+              id="calc-input"
+              type="text"
+              inputmode="numeric"
+              value="100,000"
+              style="width:100%;box-sizing:border-box;background:#07090E;border:1px solid #2E3340;color:var(--text);font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;line-height:1;padding:16px 16px 16px 36px;outline:none;-webkit-appearance:none;appearance:none;"
+              oninput="syncSlider(this)"
+              onblur="formatInput(this)"
+            />
+          </div>
+
+          <input
+            id="calc-slider"
+            type="range"
+            min="50000"
+            max="2000000"
+            step="10000"
+            value="100000"
+            style="width:100%;-webkit-appearance:none;appearance:none;height:3px;background:linear-gradient(to right,#C09A2B calc(var(--pct,4.5%)),#2E3340 calc(var(--pct,4.5%)));outline:none;cursor:pointer;margin-bottom:10px;"
+            oninput="syncInput(this)"
+          />
+          <div style="display:flex;justify-content:space-between;font-family:'Outfit',sans-serif;font-size:11px;color:var(--text-light);margin-bottom:40px;">
+            <span>$50K</span><span>$2M</span>
+          </div>
+
+          <div style="border-top:1px solid #1F2330;padding-top:28px;">
+            <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-light);margin-bottom:14px;">Preferred Return Structure</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--text-secondary);">Preferred return</span>
+                <span style="font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:var(--text);">10% per annum</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--text-secondary);">Profit split above pref</span>
+                <span style="font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:var(--text);">50 / 50</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--text-secondary);">Distribution frequency</span>
+                <span style="font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:var(--text);">Monthly</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--text-secondary);">Minimum investment</span>
+                <span style="font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:var(--text);">$50,000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: OUTPUT -->
+        <div style="background:#0B0E14;padding:44px 40px;border-left:2px solid #C09A2B;position:relative;">
+          <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C09A2B;margin-bottom:28px;">Projected Preferred Return</div>
+
+          <div style="margin-bottom:36px;">
+            <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:8px;">Monthly Distribution</div>
+            <div id="calc-monthly" style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(42px,5vw,60px);line-height:1;color:#C09A2B;">$833</div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#1F2330;margin-bottom:32px;">
+            <div style="background:#07090E;padding:20px 18px;">
+              <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:8px;">Annual Preferred</div>
+              <div id="calc-annual" style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:600;color:var(--text);">$10,000</div>
+            </div>
+            <div style="background:#07090E;padding:20px 18px;">
+              <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:8px;">Preferred Rate</div>
+              <div style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:600;color:var(--text);">10.0%</div>
+            </div>
+          </div>
+
+          <div style="background:#0F1218;border:1px solid #2E3340;border-left:2px solid #C09A2B;padding:18px 20px;margin-bottom:28px;">
+            <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#C09A2B;margin-bottom:6px;">+ 50/50 Profit Split Upside</div>
+            <div style="font-family:'Outfit',sans-serif;font-size:13px;line-height:1.5;color:var(--text-secondary);">Additional income above the 10% pref is split equally between investors and the manager — your upside grows with fund performance.</div>
+          </div>
+
+          <a href="https://sevenpeakcapital.cashflowportal.com/offering/3a3de4fa505341478b05f58f87d0861d" class="btn btn--dark" style="display:block;text-align:center;font-size:13px;padding:16px 24px;" target="_blank" rel="noopener noreferrer">Submit a Soft Commit</a>
+        </div>
+      </div>
+
+      <p style="font-family:'Outfit',sans-serif;font-weight:300;font-style:italic;font-size:12px;line-height:1.6;color:var(--text-light);text-align:center;max-width:720px;margin:20px auto 0;">Projected figures are based on a 10% annualized preferred return and are for illustrative purposes only. The preferred return is a target and is not guaranteed. All investments involve risk, including possible loss of principal. The 50/50 profit split above the preferred return is subject to fund performance. See full disclosures below.</p>
+    </div>
+  </section>
+
+  <style>
+    #calc-slider::-webkit-slider-thumb { -webkit-appearance:none; width:18px; height:18px; border-radius:50%; background:#C09A2B; cursor:pointer; border:2px solid #07090E; box-shadow:0 0 0 2px #C09A2B; }
+    #calc-slider::-moz-range-thumb { width:18px; height:18px; border-radius:50%; background:#C09A2B; cursor:pointer; border:2px solid #07090E; box-shadow:0 0 0 2px #C09A2B; }
+    #calc-input:focus { border-color:#C09A2B; }
+    @media(max-width:680px) {
+      #calc-grid { grid-template-columns:1fr !important; }
+    }
+  </style>
+
+  <script>
+    (function() {
+      const slider = document.getElementById('calc-slider');
+      const input = document.getElementById('calc-input');
+      const elMonthly = document.getElementById('calc-monthly');
+      const elAnnual = document.getElementById('calc-annual');
+
+      function fmt(n) {
+        return '$' + Math.round(n).toLocaleString('en-US');
+      }
+
+      function update(amount) {
+        amount = Math.max(50000, Math.min(2000000, amount));
+        const monthly = amount * 0.10 / 12;
+        const annual = amount * 0.10;
+        elMonthly.textContent = fmt(monthly);
+        elAnnual.textContent = fmt(annual);
+        const pct = ((amount - 50000) / (2000000 - 50000) * 100).toFixed(2);
+        slider.style.setProperty('--pct', pct + '%');
+      }
+
+      window.syncSlider = function(el) {
+        const raw = el.value.replace(/[^0-9]/g, '');
+        const amount = parseInt(raw) || 0;
+        slider.value = Math.max(50000, Math.min(2000000, amount));
+        update(amount);
+      };
+
+      window.syncInput = function(el) {
+        const amount = parseInt(el.value);
+        const display = '$' + amount.toLocaleString('en-US');
+        input.value = display.replace('$','').replace(/,/g,'');
+        formatInputValue(amount);
+        update(amount);
+      };
+
+      window.formatInput = function(el) {
+        const raw = el.value.replace(/[^0-9]/g, '');
+        const amount = Math.max(50000, Math.min(2000000, parseInt(raw) || 50000));
+        el.value = amount.toLocaleString('en-US');
+        slider.value = amount;
+        update(amount);
+      };
+
+      function formatInputValue(amount) {
+        input.value = amount.toLocaleString('en-US');
+      }
+
+      slider.addEventListener('input', function() {
+        const amount = parseInt(this.value);
+        formatInputValue(amount);
+        update(amount);
+      });
+
+      update(100000);
+    })();
+  </script>
+
   <!-- INVESTMENT THESIS -->
   <section class="fund-thesis">
     <div class="container">
